@@ -3,269 +3,345 @@
 <head>
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
-  <title>Apartmani Sanja · Ruskamen, Omiš Riviera</title>
-  <meta name="description" content="Four private apartments on the Omiš Riviera. Pebble beach 20m. Pine trees, sea views, and Adriatic serenity. Ruskamen, Dalmatia, Croatia.">
+  <title>Apartmani Sanja · Ruskamen, Omiš Riviera · Croatia</title>
+  <meta name="description" content="Four private apartments on the Omiš Riviera. Pebble beach 20 metres away. Pine-scented air, Adriatic views, no middlemen.">
   <link rel="preconnect" href="https://fonts.googleapis.com">
   <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-  <link href="https://fonts.googleapis.com/css2?family=Cormorant+Garant:ital,wght@0,300;0,400;0,600;1,300;1,400&family=DM+Sans:wght@300;400;500&display=swap" rel="stylesheet">
+  <link href="https://fonts.googleapis.com/css2?family=Playfair+Display:ital,wght@0,400;0,500;0,700;1,400;1,500&family=DM+Sans:wght@300;400;500&display=swap" rel="stylesheet">
 
   <style>
-    /* ─── Reset & Variables ─── */
+    /* ══════════════════════════════════════════
+       RESET & VARIABLES
+    ══════════════════════════════════════════ */
     *, *::before, *::after { box-sizing: border-box; margin: 0; padding: 0; }
+
     :root {
-      --cream:      #FAF7F2;
-      --sand:       #EDE3D4;
-      --sand-dark:  #D9C9B0;
-      --terracotta: #C4714A;
-      --terracotta-dark: #A85C39;
-      --navy:       #1A2744;
-      --navy-light: #243460;
-      --white:      #FFFFFF;
-      --text:       #3D3530;
-      --text-muted: #8A7F78;
-      --font-display: 'Cormorant Garant', Georgia, serif;
-      --font-body:    'DM Sans', system-ui, sans-serif;
-      --ease: cubic-bezier(0.25, 0.46, 0.45, 0.94);
+      --navy:        #0C1829;
+      --navy-mid:    #152236;
+      --navy-light:  #1E3251;
+      --gold:        #C9A84C;
+      --gold-light:  #E2C47A;
+      --gold-dim:    rgba(201,168,76,0.18);
+      --cream:       #F5EFE3;
+      --cream-dim:   rgba(245,239,227,0.07);
+      --white:       #FFFFFF;
+      --text-muted:  rgba(245,239,227,0.52);
+      --border:      rgba(201,168,76,0.18);
+      --ease:        cubic-bezier(0.25,0.46,0.45,0.94);
+      --font-serif:  'Playfair Display', Georgia, serif;
+      --font-sans:   'DM Sans', system-ui, sans-serif;
     }
-    html { scroll-behavior: smooth; }
+
+    html { scroll-behavior: smooth; font-size: 16px; }
     body {
-      font-family: var(--font-body);
-      background: var(--cream);
-      color: var(--text);
-      font-size: 16px;
-      line-height: 1.6;
+      font-family: var(--font-sans);
+      background: var(--navy);
+      color: var(--cream);
       overflow-x: hidden;
+      line-height: 1.65;
     }
     img { display: block; max-width: 100%; }
     a { text-decoration: none; color: inherit; }
     ul { list-style: none; }
+    button { font-family: inherit; cursor: pointer; }
 
-    /* ─── Typography ─── */
-    .display { font-family: var(--font-display); }
-    h1, h2, h3 { font-family: var(--font-display); font-weight: 400; line-height: 1.15; }
-    h2 { font-size: clamp(2.2rem, 4vw, 3.2rem); color: var(--navy); }
-    h3 { font-size: clamp(1.4rem, 2.5vw, 1.9rem); color: var(--navy); }
+    /* ══════════════════════════════════════════
+       UTILITIES
+    ══════════════════════════════════════════ */
+    .container { max-width: 1240px; margin: 0 auto; padding: 0 2rem; }
 
-    /* ─── Utility ─── */
-    .container { max-width: 1200px; margin: 0 auto; padding: 0 2rem; }
-    .section-label {
-      font-family: var(--font-body);
-      font-size: 0.7rem;
+    .label {
+      display: inline-block;
+      font-size: 0.65rem;
       font-weight: 500;
-      letter-spacing: 0.2em;
+      letter-spacing: 0.25em;
       text-transform: uppercase;
-      color: var(--terracotta);
-      margin-bottom: 1rem;
-    }
-    .divider {
-      width: 3rem;
-      height: 1px;
-      background: var(--terracotta);
-      margin: 1.5rem 0;
+      color: var(--gold);
+      margin-bottom: 1.1rem;
     }
 
-    /* ─── Navigation ─── */
+    .gold-line {
+      display: block;
+      width: 2.5rem;
+      height: 1px;
+      background: var(--gold);
+      margin: 1.4rem 0;
+    }
+
+    h2.serif {
+      font-family: var(--font-serif);
+      font-weight: 400;
+      font-size: clamp(2rem, 4vw, 3rem);
+      line-height: 1.18;
+      color: var(--cream);
+    }
+    h2.serif em { font-style: italic; color: var(--gold-light); }
+
+    /* ══════════════════════════════════════════
+       NAVIGATION
+    ══════════════════════════════════════════ */
     nav {
       position: fixed;
-      top: 0;
-      left: 0;
-      right: 0;
-      z-index: 100;
-      padding: 1.5rem 2rem;
+      top: 0; left: 0; right: 0;
+      z-index: 200;
+      padding: 1.75rem 2.5rem;
       display: flex;
       align-items: center;
       justify-content: space-between;
-      transition: background 0.4s var(--ease), padding 0.4s var(--ease), box-shadow 0.4s;
+      transition: padding 0.4s var(--ease), background 0.4s var(--ease), backdrop-filter 0.4s;
     }
-    nav.scrolled {
-      background: var(--navy);
-      padding: 1rem 2rem;
-      box-shadow: 0 4px 30px rgba(26,39,68,0.25);
+    nav.solid {
+      padding: 1.1rem 2.5rem;
+      background: rgba(12,24,41,0.92);
+      backdrop-filter: blur(18px);
+      border-bottom: 1px solid var(--border);
     }
-    .nav-logo {
-      font-family: var(--font-display);
-      font-size: 1.5rem;
+
+    .nav-brand {
+      font-family: var(--font-serif);
+      font-size: 1.3rem;
       font-weight: 400;
-      color: var(--white);
-      letter-spacing: 0.03em;
+      color: var(--cream);
+      letter-spacing: 0.02em;
     }
-    .nav-logo span { color: var(--terracotta); }
+    .nav-brand span { color: var(--gold); }
+
     .nav-links {
       display: flex;
       gap: 2.5rem;
       align-items: center;
     }
     .nav-links a {
-      color: rgba(255,255,255,0.85);
-      font-size: 0.8rem;
-      font-weight: 400;
-      letter-spacing: 0.12em;
+      font-size: 0.72rem;
+      letter-spacing: 0.14em;
       text-transform: uppercase;
-      transition: color 0.2s;
+      color: var(--text-muted);
+      position: relative;
+      transition: color 0.25s;
     }
-    .nav-links a:hover { color: var(--white); }
-    .nav-cta {
-      background: var(--terracotta);
-      color: var(--white) !important;
-      padding: 0.5rem 1.2rem;
-      border-radius: 2px;
-      transition: background 0.2s !important;
+    .nav-links a::after {
+      content: '';
+      position: absolute;
+      bottom: -3px; left: 0;
+      width: 0; height: 1px;
+      background: var(--gold);
+      transition: width 0.3s var(--ease);
     }
-    .nav-cta:hover { background: var(--terracotta-dark) !important; }
+    .nav-links a:hover { color: var(--cream); }
+    .nav-links a:hover::after { width: 100%; }
+
+    .nav-book {
+      border: 1px solid var(--gold) !important;
+      color: var(--gold) !important;
+      padding: 0.45rem 1.2rem;
+      transition: background 0.25s, color 0.25s !important;
+    }
+    .nav-book:hover { background: var(--gold) !important; color: var(--navy) !important; }
+    .nav-book::after { display: none !important; }
+
     .nav-hamburger {
       display: none;
       flex-direction: column;
       gap: 5px;
-      cursor: pointer;
       padding: 4px;
+      background: none;
+      border: none;
     }
     .nav-hamburger span {
       display: block;
-      width: 24px;
-      height: 1.5px;
-      background: var(--white);
+      width: 22px; height: 1px;
+      background: var(--cream);
       transition: all 0.3s;
     }
 
-    /* ─── Hero ─── */
+    /* ══════════════════════════════════════════
+       HERO
+    ══════════════════════════════════════════ */
     #hero {
       position: relative;
       height: 100vh;
-      min-height: 600px;
+      min-height: 640px;
       display: flex;
-      align-items: center;
+      align-items: flex-end;
       overflow: hidden;
     }
+
     .hero-bg {
       position: absolute;
       inset: 0;
       background-image: url('https://www.apartmanija.hr/slike/apartments/10212_4441_1736550971.jpg');
       background-size: cover;
-      background-position: center 60%;
-      transform: scale(1.08);
-      animation: heroZoom 20s ease-out forwards;
+      background-position: center 55%;
+      transform-origin: center;
+      animation: kenburns 22s ease-out forwards;
     }
-    @keyframes heroZoom {
-      from { transform: scale(1.08); }
-      to   { transform: scale(1.0); }
+    @keyframes kenburns {
+      0%   { transform: scale(1.12) translateY(0); }
+      100% { transform: scale(1.0) translateY(-2%); }
     }
+
     .hero-overlay {
       position: absolute;
       inset: 0;
       background: linear-gradient(
-        160deg,
-        rgba(26,39,68,0.72) 0%,
-        rgba(26,39,68,0.35) 50%,
-        rgba(196,113,74,0.15) 100%
+        to top,
+        rgba(12,24,41,0.97) 0%,
+        rgba(12,24,41,0.55) 40%,
+        rgba(12,24,41,0.2) 70%,
+        rgba(12,24,41,0.1) 100%
       );
     }
+
     .hero-content {
       position: relative;
       z-index: 2;
-      padding: 0 2rem;
-      max-width: 780px;
-      margin-left: clamp(2rem, 8vw, 8rem);
+      width: 100%;
+      padding: 0 2.5rem 6rem;
+      max-width: 1240px;
+      margin: 0 auto;
+      display: grid;
+      grid-template-columns: 1fr auto;
+      align-items: flex-end;
+      gap: 3rem;
     }
+
+    .hero-left {}
     .hero-eyebrow {
-      font-size: 0.72rem;
-      font-weight: 400;
+      font-size: 0.68rem;
       letter-spacing: 0.28em;
       text-transform: uppercase;
-      color: var(--sand);
+      color: var(--gold);
       opacity: 0;
-      animation: fadeUp 0.8s var(--ease) 0.2s forwards;
+      animation: riseUp 0.8s var(--ease) 0.3s forwards;
     }
     .hero-title {
-      font-size: clamp(3rem, 7vw, 6rem);
-      font-weight: 300;
-      color: var(--white);
-      line-height: 1.05;
-      margin-top: 1rem;
+      font-family: var(--font-serif);
+      font-size: clamp(3.2rem, 7.5vw, 6.5rem);
+      font-weight: 400;
+      line-height: 1.0;
+      color: var(--cream);
+      margin-top: 0.8rem;
       opacity: 0;
-      animation: fadeUp 0.9s var(--ease) 0.5s forwards;
+      animation: riseUp 1s var(--ease) 0.6s forwards;
     }
     .hero-title em {
       font-style: italic;
-      color: var(--sand);
+      color: var(--gold-light);
     }
-    .hero-subtitle {
-      font-size: clamp(0.95rem, 1.5vw, 1.1rem);
-      color: rgba(255,255,255,0.8);
+    .hero-desc {
+      font-size: 1rem;
       font-weight: 300;
-      margin-top: 1.5rem;
-      max-width: 480px;
+      color: var(--text-muted);
+      margin-top: 1.6rem;
+      max-width: 420px;
       opacity: 0;
-      animation: fadeUp 0.9s var(--ease) 0.8s forwards;
+      animation: riseUp 0.9s var(--ease) 0.9s forwards;
     }
-    .hero-actions {
+    .hero-ctas {
       display: flex;
       gap: 1rem;
       margin-top: 2.5rem;
       flex-wrap: wrap;
       opacity: 0;
-      animation: fadeUp 0.9s var(--ease) 1.1s forwards;
+      animation: riseUp 0.9s var(--ease) 1.2s forwards;
     }
-    .btn-primary {
+
+    .btn-gold {
       display: inline-flex;
       align-items: center;
-      gap: 0.5rem;
-      background: var(--terracotta);
-      color: var(--white);
-      padding: 0.85rem 2rem;
-      font-size: 0.85rem;
+      gap: 0.6rem;
+      background: var(--gold);
+      color: var(--navy);
+      padding: 0.9rem 2rem;
+      font-size: 0.78rem;
       font-weight: 500;
-      letter-spacing: 0.06em;
+      letter-spacing: 0.1em;
+      text-transform: uppercase;
       border: none;
-      cursor: pointer;
-      transition: background 0.2s, transform 0.2s;
+      transition: background 0.25s, transform 0.2s;
     }
-    .btn-primary:hover { background: var(--terracotta-dark); transform: translateY(-1px); }
-    .btn-outline {
+    .btn-gold:hover { background: var(--gold-light); transform: translateY(-2px); }
+
+    .btn-ghost {
       display: inline-flex;
       align-items: center;
-      gap: 0.5rem;
+      gap: 0.6rem;
       background: transparent;
-      color: var(--white);
-      padding: 0.85rem 2rem;
-      font-size: 0.85rem;
+      color: var(--cream);
+      padding: 0.9rem 2rem;
+      font-size: 0.78rem;
       font-weight: 400;
-      letter-spacing: 0.06em;
-      border: 1px solid rgba(255,255,255,0.5);
-      cursor: pointer;
-      transition: background 0.2s, border-color 0.2s, transform 0.2s;
+      letter-spacing: 0.1em;
+      text-transform: uppercase;
+      border: 1px solid rgba(245,239,227,0.3);
+      transition: border-color 0.25s, background 0.25s, transform 0.2s;
     }
-    .btn-outline:hover { background: rgba(255,255,255,0.1); border-color: var(--white); transform: translateY(-1px); }
-    .hero-scroll {
+    .btn-ghost:hover { border-color: var(--cream); background: rgba(245,239,227,0.06); transform: translateY(-2px); }
+
+    .hero-right {
+      opacity: 0;
+      animation: riseUp 0.9s var(--ease) 1.4s forwards;
+    }
+    .hero-stats {
+      display: flex;
+      flex-direction: column;
+      gap: 1.8rem;
+      text-align: right;
+      padding-bottom: 0.5rem;
+    }
+    .hero-stat-num {
+      font-family: var(--font-serif);
+      font-size: 2.4rem;
+      font-weight: 400;
+      color: var(--gold-light);
+      line-height: 1;
+    }
+    .hero-stat-num sup { font-size: 0.5em; vertical-align: super; }
+    .hero-stat-label {
+      font-size: 0.65rem;
+      letter-spacing: 0.15em;
+      text-transform: uppercase;
+      color: var(--text-muted);
+      margin-top: 0.2rem;
+    }
+    .hero-stat-divider {
+      width: 100%;
+      height: 1px;
+      background: var(--border);
+    }
+
+    .hero-scroll-hint {
       position: absolute;
-      bottom: 2.5rem;
+      bottom: 2rem;
       left: 50%;
       transform: translateX(-50%);
-      z-index: 2;
       display: flex;
       flex-direction: column;
       align-items: center;
-      gap: 0.5rem;
+      gap: 0.4rem;
+      z-index: 2;
       opacity: 0;
-      animation: fadeIn 1s var(--ease) 1.8s forwards;
+      animation: fadeIn 1s var(--ease) 2s forwards;
     }
-    .hero-scroll span {
-      font-size: 0.65rem;
+    .hero-scroll-hint span {
+      font-size: 0.6rem;
       letter-spacing: 0.2em;
       text-transform: uppercase;
-      color: rgba(255,255,255,0.6);
+      color: var(--text-muted);
     }
-    .scroll-line {
+    .scroll-bar {
       width: 1px;
-      height: 50px;
-      background: linear-gradient(to bottom, rgba(255,255,255,0.6), transparent);
-      animation: scrollPulse 2s ease-in-out infinite;
+      height: 48px;
+      background: linear-gradient(to bottom, var(--gold), transparent);
+      animation: scrollDrop 1.8s ease-in-out infinite;
     }
-    @keyframes scrollPulse {
-      0%,100% { opacity: 0.5; transform: scaleY(1); }
-      50%      { opacity: 1; transform: scaleY(0.6); }
+    @keyframes scrollDrop {
+      0%   { transform: scaleY(0); transform-origin: top; opacity: 1; }
+      50%  { transform: scaleY(1); transform-origin: top; opacity: 1; }
+      100% { transform: scaleY(1); transform-origin: bottom; opacity: 0; }
     }
-    @keyframes fadeUp {
-      from { opacity: 0; transform: translateY(24px); }
+    @keyframes riseUp {
+      from { opacity: 0; transform: translateY(28px); }
       to   { opacity: 1; transform: translateY(0); }
     }
     @keyframes fadeIn {
@@ -273,597 +349,713 @@
       to   { opacity: 1; }
     }
 
-    /* ─── About ─── */
+    /* ══════════════════════════════════════════
+       INTRO STRIP
+    ══════════════════════════════════════════ */
+    .intro-strip {
+      background: var(--navy-mid);
+      border-top: 1px solid var(--border);
+      border-bottom: 1px solid var(--border);
+      padding: 2.5rem 0;
+    }
+    .intro-strip-inner {
+      display: flex;
+      justify-content: center;
+      gap: 0;
+    }
+    .intro-item {
+      flex: 1;
+      text-align: center;
+      padding: 0.5rem 1.5rem;
+      position: relative;
+      max-width: 240px;
+    }
+    .intro-item:not(:last-child)::after {
+      content: '';
+      position: absolute;
+      right: 0; top: 10%; height: 80%;
+      width: 1px;
+      background: var(--border);
+    }
+    .intro-num {
+      font-family: var(--font-serif);
+      font-size: 2.5rem;
+      font-weight: 400;
+      color: var(--gold);
+      line-height: 1;
+    }
+    .intro-num sup { font-size: 0.45em; vertical-align: super; }
+    .intro-lbl {
+      font-size: 0.65rem;
+      letter-spacing: 0.18em;
+      text-transform: uppercase;
+      color: var(--text-muted);
+      margin-top: 0.4rem;
+    }
+
+    /* ══════════════════════════════════════════
+       ABOUT
+    ══════════════════════════════════════════ */
     #about {
-      padding: 7rem 0 0;
+      padding: 7rem 0;
     }
     .about-grid {
       display: grid;
       grid-template-columns: 1fr 1fr;
-      gap: 5rem;
+      gap: 6rem;
       align-items: center;
     }
     .about-text p {
-      color: var(--text);
-      font-size: 1.05rem;
-      line-height: 1.8;
+      color: var(--text-muted);
+      font-size: 1rem;
       font-weight: 300;
+      line-height: 1.85;
     }
-    .about-text p + p { margin-top: 1.2rem; }
+    .about-text p + p { margin-top: 1.1rem; }
+
     .about-images {
-      display: grid;
-      grid-template-columns: 1fr 1fr;
-      grid-template-rows: auto auto;
-      gap: 1rem;
+      position: relative;
     }
-    .about-img-main {
-      grid-column: 1 / 3;
-      aspect-ratio: 16/9;
+    .about-img-large {
+      width: 100%;
+      aspect-ratio: 4/5;
       overflow: hidden;
     }
-    .about-img-main img,
-    .about-img-small img {
-      width: 100%;
-      height: 100%;
+    .about-img-large img {
+      width: 100%; height: 100%;
       object-fit: cover;
-      transition: transform 0.6s var(--ease);
+      transition: transform 0.7s var(--ease);
     }
-    .about-img-small {
+    .about-img-large:hover img { transform: scale(1.04); }
+    .about-img-float {
+      position: absolute;
+      bottom: -2.5rem;
+      left: -2.5rem;
+      width: 55%;
       aspect-ratio: 4/3;
       overflow: hidden;
+      border: 4px solid var(--navy);
+      box-shadow: 0 20px 60px rgba(0,0,0,0.5);
     }
-    .about-img-main:hover img,
-    .about-img-small:hover img { transform: scale(1.04); }
-    .stats-strip {
-      margin-top: 5rem;
-      background: var(--navy);
-      padding: 2.5rem 2rem;
-      display: grid;
-      grid-template-columns: repeat(4, 1fr);
-      text-align: center;
-      gap: 1rem;
+    .about-img-float img {
+      width: 100%; height: 100%;
+      object-fit: cover;
+      transition: transform 0.7s var(--ease);
     }
-    .stat-item { position: relative; }
-    .stat-item:not(:last-child)::after {
-      content: '';
+    .about-img-float:hover img { transform: scale(1.06); }
+    .about-gold-tag {
       position: absolute;
-      right: 0;
-      top: 50%;
-      transform: translateY(-50%);
-      height: 60%;
-      width: 1px;
-      background: rgba(255,255,255,0.15);
-    }
-    .stat-num {
-      font-family: var(--font-display);
-      font-size: clamp(2rem, 3vw, 2.8rem);
-      font-weight: 300;
-      color: var(--white);
-      line-height: 1;
-    }
-    .stat-num sup {
-      font-size: 0.55em;
-      vertical-align: super;
-    }
-    .stat-label {
-      font-size: 0.72rem;
+      top: 1.5rem;
+      right: -1.5rem;
+      background: var(--gold);
+      color: var(--navy);
+      font-size: 0.68rem;
+      font-weight: 500;
       letter-spacing: 0.14em;
       text-transform: uppercase;
-      color: var(--sand);
-      margin-top: 0.4rem;
+      padding: 0.6rem 1rem;
+      writing-mode: vertical-rl;
     }
 
-    /* ─── Apartments ─── */
+    /* ══════════════════════════════════════════
+       EXPERIENCE HIGHLIGHTS
+    ══════════════════════════════════════════ */
+    #experience {
+      padding: 6rem 0;
+      background: var(--navy-mid);
+      border-top: 1px solid var(--border);
+      border-bottom: 1px solid var(--border);
+    }
+    .exp-header { text-align: center; margin-bottom: 4rem; }
+    .exp-grid {
+      display: grid;
+      grid-template-columns: repeat(4, 1fr);
+      gap: 1px;
+      background: var(--border);
+    }
+    .exp-item {
+      background: var(--navy-mid);
+      padding: 2.8rem 2rem;
+      text-align: center;
+      transition: background 0.3s;
+      position: relative;
+      overflow: hidden;
+    }
+    .exp-item::before {
+      content: '';
+      position: absolute;
+      bottom: 0; left: 0; right: 0;
+      height: 0;
+      background: linear-gradient(to top, var(--gold-dim), transparent);
+      transition: height 0.4s var(--ease);
+    }
+    .exp-item:hover { background: var(--navy-light); }
+    .exp-item:hover::before { height: 100%; }
+    .exp-icon {
+      width: 52px; height: 52px;
+      margin: 0 auto 1.4rem;
+      color: var(--gold);
+    }
+    .exp-item h3 {
+      font-family: var(--font-serif);
+      font-size: 1.15rem;
+      font-weight: 400;
+      color: var(--cream);
+      margin-bottom: 0.7rem;
+    }
+    .exp-item p {
+      font-size: 0.82rem;
+      color: var(--text-muted);
+      font-weight: 300;
+      line-height: 1.7;
+    }
+
+    /* ══════════════════════════════════════════
+       APARTMENTS
+    ══════════════════════════════════════════ */
     #apartments {
       padding: 7rem 0;
     }
-    .section-header { margin-bottom: 3.5rem; }
-    .apartments-grid {
+    .apt-header {
+      display: flex;
+      justify-content: space-between;
+      align-items: flex-end;
+      margin-bottom: 4rem;
+      gap: 2rem;
+      flex-wrap: wrap;
+    }
+    .apt-header p {
+      max-width: 340px;
+      color: var(--text-muted);
+      font-size: 0.92rem;
+      font-weight: 300;
+      line-height: 1.75;
+    }
+    .apt-grid {
       display: grid;
       grid-template-columns: repeat(2, 1fr);
-      gap: 2rem;
+      gap: 1.5px;
+      background: var(--border);
     }
     .apt-card {
-      background: var(--white);
-      overflow: hidden;
-      box-shadow: 0 4px 24px rgba(26,39,68,0.07);
-      transition: box-shadow 0.3s, transform 0.3s;
+      background: var(--navy-mid);
+      display: flex;
+      flex-direction: column;
+      transition: background 0.3s;
     }
-    .apt-card:hover {
-      box-shadow: 0 12px 40px rgba(26,39,68,0.13);
-      transform: translateY(-3px);
-    }
+    .apt-card:hover { background: var(--navy-light); }
+
     /* Slideshow */
-    .slideshow {
+    .ss-wrap {
       position: relative;
-      aspect-ratio: 4/3;
+      aspect-ratio: 16/10;
       overflow: hidden;
-      background: var(--sand);
+      background: var(--navy-light);
+      flex-shrink: 0;
     }
-    .slide {
+    .ss-slide {
       position: absolute;
       inset: 0;
       opacity: 0;
-      transition: opacity 0.6s var(--ease);
+      transition: opacity 0.7s var(--ease);
     }
-    .slide.active { opacity: 1; }
-    .slide img {
-      width: 100%;
-      height: 100%;
-      object-fit: cover;
-    }
-    .slide-btn {
+    .ss-slide.active { opacity: 1; }
+    .ss-slide img { width: 100%; height: 100%; object-fit: cover; }
+    .ss-slide img:hover { transform: scale(1.03); transition: transform 6s ease; }
+    .ss-btn {
       position: absolute;
       top: 50%;
       transform: translateY(-50%);
       z-index: 3;
-      background: rgba(26,39,68,0.55);
-      color: var(--white);
-      border: none;
-      width: 38px;
-      height: 38px;
+      background: rgba(12,24,41,0.6);
+      border: 1px solid var(--border);
+      color: var(--cream);
+      width: 36px; height: 36px;
       display: flex;
       align-items: center;
       justify-content: center;
-      cursor: pointer;
-      font-size: 1.1rem;
-      transition: background 0.2s;
+      font-size: 1rem;
+      transition: background 0.2s, border-color 0.2s;
     }
-    .slide-btn:hover { background: rgba(26,39,68,0.85); }
-    .slide-btn.prev { left: 0.75rem; }
-    .slide-btn.next { right: 0.75rem; }
-    .slide-dots {
+    .ss-btn:hover { background: rgba(201,168,76,0.3); border-color: var(--gold); color: var(--gold); }
+    .ss-btn.prev { left: 0.8rem; }
+    .ss-btn.next { right: 0.8rem; }
+    .ss-dots {
       position: absolute;
       bottom: 0.8rem;
       left: 50%;
       transform: translateX(-50%);
       display: flex;
-      gap: 0.4rem;
+      gap: 0.35rem;
       z-index: 3;
     }
-    .dot {
-      width: 6px;
-      height: 6px;
+    .ss-dot {
+      width: 5px; height: 5px;
       border-radius: 50%;
-      background: rgba(255,255,255,0.5);
-      cursor: pointer;
+      background: rgba(245,239,227,0.3);
       transition: background 0.2s, transform 0.2s;
     }
-    .dot.active { background: var(--white); transform: scale(1.3); }
-    .apt-badge-row {
+    .ss-dot.on { background: var(--gold); transform: scale(1.4); }
+    .ss-badges {
       position: absolute;
       top: 0.8rem;
-      left: 0.8rem;
+      right: 0.8rem;
       display: flex;
-      gap: 0.4rem;
+      flex-direction: column;
+      gap: 0.3rem;
+      align-items: flex-end;
       z-index: 3;
     }
-    .apt-badge {
-      background: rgba(26,39,68,0.78);
-      color: var(--white);
-      font-size: 0.68rem;
+    .ss-badge {
+      font-size: 0.62rem;
       font-weight: 500;
-      letter-spacing: 0.08em;
-      padding: 0.25rem 0.6rem;
+      letter-spacing: 0.1em;
+      text-transform: uppercase;
+      padding: 0.2rem 0.55rem;
+      background: rgba(12,24,41,0.78);
+      color: var(--cream);
       backdrop-filter: blur(4px);
     }
-    .apt-badge.ac { background: rgba(196,113,74,0.88); }
+    .ss-badge.gold { background: var(--gold); color: var(--navy); }
+
     /* Card body */
     .apt-body {
-      padding: 1.75rem;
+      padding: 2rem;
+      display: flex;
+      flex-direction: column;
+      flex: 1;
+      border-top: 1px solid var(--border);
     }
-    .apt-header {
+    .apt-top {
       display: flex;
       justify-content: space-between;
       align-items: flex-start;
       gap: 1rem;
     }
     .apt-name {
-      font-family: var(--font-display);
+      font-family: var(--font-serif);
       font-size: 1.6rem;
       font-weight: 400;
-      color: var(--navy);
-      line-height: 1.2;
+      color: var(--cream);
+      line-height: 1.15;
     }
-    .apt-price {
-      text-align: right;
-      flex-shrink: 0;
-    }
-    .apt-price .from {
-      font-size: 0.65rem;
-      letter-spacing: 0.1em;
+    .apt-sub {
+      font-size: 0.68rem;
+      letter-spacing: 0.18em;
       text-transform: uppercase;
-      color: var(--text-muted);
+      color: var(--gold);
+      margin-top: 0.3rem;
     }
-    .apt-price .amount {
-      font-family: var(--font-display);
-      font-size: 1.9rem;
+    .apt-price-box { text-align: right; flex-shrink: 0; }
+    .apt-from { font-size: 0.62rem; letter-spacing: 0.1em; text-transform: uppercase; color: var(--text-muted); }
+    .apt-amount {
+      font-family: var(--font-serif);
+      font-size: 2rem;
       font-weight: 400;
-      color: var(--terracotta);
+      color: var(--gold-light);
       line-height: 1;
     }
-    .apt-price .per {
-      font-size: 0.7rem;
-      color: var(--text-muted);
-    }
-    .apt-meta {
+    .apt-per { font-size: 0.68rem; color: var(--text-muted); }
+
+    .apt-meta-row {
       display: flex;
       gap: 1.5rem;
-      margin-top: 1rem;
-      font-size: 0.82rem;
+      margin-top: 1.2rem;
+      font-size: 0.78rem;
       color: var(--text-muted);
     }
-    .apt-meta-item {
-      display: flex;
-      align-items: center;
-      gap: 0.35rem;
-    }
-    .apt-meta-item svg { flex-shrink: 0; }
-    .apt-divider {
-      height: 1px;
-      background: var(--sand);
-      margin: 1.2rem 0;
-    }
-    .apt-amenities {
+    .apt-meta-row span { display: flex; align-items: center; gap: 0.3rem; }
+
+    .apt-sep { height: 1px; background: var(--border); margin: 1.3rem 0; }
+
+    .apt-tags {
       display: flex;
       flex-wrap: wrap;
       gap: 0.4rem;
       margin-bottom: 1.5rem;
     }
-    .amenity-tag {
-      font-size: 0.7rem;
-      font-weight: 400;
-      letter-spacing: 0.05em;
-      color: var(--navy);
-      background: var(--sand);
-      padding: 0.25rem 0.7rem;
-      border-radius: 2px;
+    .apt-tag {
+      font-size: 0.68rem;
+      letter-spacing: 0.07em;
+      color: var(--text-muted);
+      border: 1px solid var(--border);
+      padding: 0.22rem 0.65rem;
+      transition: border-color 0.2s, color 0.2s;
     }
-    .btn-whatsapp {
+    .apt-card:hover .apt-tag { border-color: rgba(201,168,76,0.35); color: var(--cream); }
+
+    .apt-wa {
       display: flex;
       align-items: center;
       justify-content: center;
       gap: 0.6rem;
       width: 100%;
-      background: #25D366;
-      color: var(--white);
       padding: 0.85rem;
-      font-size: 0.85rem;
+      background: transparent;
+      border: 1px solid var(--gold);
+      color: var(--gold);
+      font-size: 0.75rem;
       font-weight: 500;
-      letter-spacing: 0.06em;
-      border: none;
-      cursor: pointer;
-      transition: background 0.2s, transform 0.2s;
+      letter-spacing: 0.1em;
+      text-transform: uppercase;
+      transition: background 0.25s, color 0.25s;
+      margin-top: auto;
     }
-    .btn-whatsapp:hover { background: #1ebe5d; transform: translateY(-1px); }
+    .apt-wa:hover { background: var(--gold); color: var(--navy); }
 
-    /* ─── Amenities ─── */
-    #amenities {
-      padding: 5rem 0;
-      background: var(--sand);
-    }
-    .amenities-grid {
-      display: grid;
-      grid-template-columns: repeat(4, 1fr);
-      gap: 1px;
-      background: var(--sand-dark);
-      margin-top: 3rem;
-    }
-    .amenity-item {
-      background: var(--cream);
-      padding: 2.5rem 1.5rem;
-      text-align: center;
-      transition: background 0.2s;
-    }
-    .amenity-item:hover { background: var(--white); }
-    .amenity-icon {
-      width: 48px;
-      height: 48px;
-      margin: 0 auto 1rem;
-      color: var(--terracotta);
-    }
-    .amenity-item h4 {
-      font-size: 0.95rem;
-      font-weight: 500;
-      color: var(--navy);
-      margin-bottom: 0.3rem;
-    }
-    .amenity-item p {
-      font-size: 0.78rem;
-      color: var(--text-muted);
-      font-weight: 300;
-    }
-
-    /* ─── Gallery ─── */
+    /* ══════════════════════════════════════════
+       GALLERY
+    ══════════════════════════════════════════ */
     #gallery {
       padding: 7rem 0;
+      background: var(--navy-mid);
+      border-top: 1px solid var(--border);
     }
-    .gallery-grid {
-      display: grid;
-      grid-template-columns: repeat(3, 1fr);
-      grid-auto-rows: 220px;
-      gap: 6px;
-      margin-top: 3rem;
+    .gallery-header { margin-bottom: 3.5rem; }
+    .gallery-masonry {
+      columns: 3;
+      column-gap: 8px;
     }
-    .gallery-item {
+    .gal-item {
+      break-inside: avoid;
+      margin-bottom: 8px;
       overflow: hidden;
       cursor: pointer;
       position: relative;
     }
-    .gallery-item:nth-child(7n+1) { grid-row: span 2; }
-    .gallery-item:nth-child(7n+5) { grid-row: span 2; }
-    .gallery-item img {
+    .gal-item img {
       width: 100%;
-      height: 100%;
-      object-fit: cover;
-      transition: transform 0.5s var(--ease);
+      display: block;
+      transition: transform 0.6s var(--ease), filter 0.4s;
+      filter: brightness(0.88);
     }
-    .gallery-item::after {
+    .gal-item::after {
       content: '';
       position: absolute;
       inset: 0;
-      background: rgba(26,39,68,0);
+      background: rgba(201,168,76,0);
       transition: background 0.3s;
     }
-    .gallery-item:hover img { transform: scale(1.06); }
-    .gallery-item:hover::after { background: rgba(26,39,68,0.2); }
+    .gal-item:hover img { transform: scale(1.04); filter: brightness(1); }
+    .gal-item:hover::after { background: rgba(201,168,76,0.06); }
+    .gal-item:nth-child(5n+1) img,
+    .gal-item:nth-child(5n+4) img { filter: brightness(0.92); }
 
-    /* Lightbox */
-    #lightbox {
-      display: none;
-      position: fixed;
-      inset: 0;
-      z-index: 1000;
-      background: rgba(10,15,30,0.96);
-      align-items: center;
-      justify-content: center;
-    }
-    #lightbox.open { display: flex; }
-    #lightbox img {
-      max-width: 90vw;
-      max-height: 88vh;
-      object-fit: contain;
-    }
-    .lb-close {
-      position: absolute;
-      top: 1.5rem;
-      right: 1.5rem;
-      background: none;
-      border: none;
-      color: rgba(255,255,255,0.7);
-      font-size: 2rem;
-      cursor: pointer;
-      line-height: 1;
-      padding: 0.25rem;
-      transition: color 0.2s;
-    }
-    .lb-close:hover { color: var(--white); }
-    .lb-nav {
-      position: absolute;
-      top: 50%;
-      transform: translateY(-50%);
-      background: rgba(255,255,255,0.12);
-      border: none;
-      color: var(--white);
-      font-size: 1.8rem;
-      width: 50px;
-      height: 50px;
-      display: flex;
-      align-items: center;
-      justify-content: center;
-      cursor: pointer;
-      transition: background 0.2s;
-    }
-    .lb-nav:hover { background: rgba(255,255,255,0.22); }
-    .lb-nav.prev { left: 1.5rem; }
-    .lb-nav.next { right: 1.5rem; }
-
-    /* ─── Location ─── */
-    #location {
+    /* ══════════════════════════════════════════
+       AMENITIES
+    ══════════════════════════════════════════ */
+    #amenities {
       padding: 7rem 0;
-      background: var(--navy);
     }
-    #location h2, #location .section-label { color: var(--white); }
-    #location .divider { background: var(--terracotta); }
-    .location-grid {
+    .amen-header { text-align: center; margin-bottom: 4rem; }
+    .amen-grid {
       display: grid;
-      grid-template-columns: 1.2fr 1fr;
-      gap: 4rem;
-      align-items: start;
-      margin-top: 3rem;
+      grid-template-columns: repeat(4, 1fr);
+      gap: 1px;
+      background: var(--border);
     }
-    .map-wrap {
-      position: relative;
-      aspect-ratio: 4/3;
-      overflow: hidden;
-    }
-    .map-wrap iframe {
-      width: 100%;
-      height: 100%;
-      border: none;
-      filter: grayscale(10%);
-    }
-    .location-info h3 {
-      color: var(--white);
-      font-size: 1.5rem;
-      margin-bottom: 1.5rem;
-    }
-    .distance-list {
+    .amen-item {
+      background: var(--navy);
+      padding: 2.4rem 1.8rem;
       display: flex;
       flex-direction: column;
-      gap: 1rem;
+      align-items: center;
+      text-align: center;
+      position: relative;
+      overflow: hidden;
+      transition: background 0.3s;
     }
-    .distance-item {
+    .amen-item::after {
+      content: '';
+      position: absolute;
+      bottom: 0; left: 0;
+      width: 0; height: 2px;
+      background: var(--gold);
+      transition: width 0.4s var(--ease);
+    }
+    .amen-item:hover { background: var(--navy-mid); }
+    .amen-item:hover::after { width: 100%; }
+    .amen-icon { width: 42px; height: 42px; color: var(--gold); margin-bottom: 1.1rem; flex-shrink: 0; }
+    .amen-item h4 { font-size: 0.88rem; font-weight: 500; color: var(--cream); margin-bottom: 0.3rem; }
+    .amen-item p { font-size: 0.74rem; color: var(--text-muted); font-weight: 300; }
+
+    /* ══════════════════════════════════════════
+       LOCATION
+    ══════════════════════════════════════════ */
+    #location {
+      padding: 7rem 0;
+      background: var(--navy-mid);
+      border-top: 1px solid var(--border);
+      border-bottom: 1px solid var(--border);
+    }
+    .loc-grid {
+      display: grid;
+      grid-template-columns: 1fr 1fr;
+      gap: 5rem;
+      align-items: center;
+      margin-top: 3.5rem;
+    }
+    .map-box {
+      position: relative;
+      aspect-ratio: 4/3.2;
+      overflow: hidden;
+    }
+    .map-box::before {
+      content: '';
+      position: absolute;
+      inset: 0;
+      border: 1px solid var(--border);
+      z-index: 1;
+      pointer-events: none;
+    }
+    .map-box iframe { width: 100%; height: 100%; border: none; display: block; }
+
+    .loc-info h3 {
+      font-family: var(--font-serif);
+      font-size: 1.6rem;
+      font-weight: 400;
+      color: var(--cream);
+      margin-bottom: 2rem;
+    }
+    .dist-list { display: flex; flex-direction: column; gap: 0; }
+    .dist-row {
       display: flex;
       justify-content: space-between;
       align-items: center;
-      padding-bottom: 1rem;
-      border-bottom: 1px solid rgba(255,255,255,0.1);
-      font-size: 0.9rem;
+      padding: 1rem 0;
+      border-bottom: 1px solid var(--border);
     }
-    .distance-item:last-child { border-bottom: none; }
-    .distance-label {
-      color: rgba(255,255,255,0.7);
+    .dist-row:first-child { border-top: 1px solid var(--border); }
+    .dist-name {
       display: flex;
       align-items: center;
-      gap: 0.6rem;
+      gap: 0.7rem;
+      font-size: 0.85rem;
+      color: var(--text-muted);
     }
-    .distance-value {
-      font-family: var(--font-display);
-      font-size: 1.2rem;
-      color: var(--sand);
+    .dist-name svg { color: var(--gold); flex-shrink: 0; }
+    .dist-val {
+      font-family: var(--font-serif);
+      font-size: 1.1rem;
+      color: var(--gold-light);
     }
-    .location-note {
+    .loc-note {
       margin-top: 2rem;
-      padding: 1.5rem;
-      background: rgba(255,255,255,0.06);
-      border-left: 2px solid var(--terracotta);
-      font-size: 0.88rem;
-      color: rgba(255,255,255,0.65);
+      padding: 1.4rem 1.6rem;
+      border-left: 2px solid var(--gold);
+      background: var(--cream-dim);
+      font-size: 0.83rem;
+      color: var(--text-muted);
       font-weight: 300;
-      line-height: 1.7;
+      line-height: 1.75;
     }
 
-    /* ─── Contact ─── */
+    /* ══════════════════════════════════════════
+       CONTACT
+    ══════════════════════════════════════════ */
     #contact {
-      padding: 7rem 0;
+      padding: 8rem 0;
     }
-    .contact-inner {
-      text-align: center;
-      max-width: 600px;
+    .contact-wrap {
+      max-width: 640px;
       margin: 0 auto;
+      text-align: center;
     }
-    .contact-inner h2 { margin-bottom: 0.5rem; }
-    .contact-tagline {
-      font-family: var(--font-display);
+    .contact-wrap h2.serif { margin-bottom: 0.3rem; }
+    .contact-italic {
+      font-family: var(--font-serif);
       font-style: italic;
-      font-size: 1.2rem;
+      font-size: 1.15rem;
       color: var(--text-muted);
-      margin-bottom: 2rem;
     }
-    .contact-inner .divider { margin: 1.5rem auto; }
-    .contact-inner p {
+    .contact-wrap p {
       color: var(--text-muted);
-      font-size: 0.95rem;
+      font-size: 0.92rem;
       font-weight: 300;
-      margin-bottom: 2.5rem;
+      margin-top: 1rem;
+      line-height: 1.8;
     }
     .contact-actions {
+      margin-top: 2.8rem;
       display: flex;
       flex-direction: column;
       align-items: center;
       gap: 1rem;
     }
-    .btn-whatsapp-large {
+    .btn-wa-big {
       display: inline-flex;
       align-items: center;
       gap: 0.8rem;
       background: #25D366;
       color: var(--white);
-      padding: 1.1rem 2.5rem;
-      font-size: 1rem;
+      padding: 1.1rem 2.8rem;
+      font-size: 0.85rem;
       font-weight: 500;
-      letter-spacing: 0.04em;
+      letter-spacing: 0.1em;
+      text-transform: uppercase;
       border: none;
-      cursor: pointer;
       transition: background 0.2s, transform 0.2s;
     }
-    .btn-whatsapp-large:hover { background: #1ebe5d; transform: translateY(-2px); }
+    .btn-wa-big:hover { background: #1ebe5d; transform: translateY(-2px); }
     .contact-phone {
-      display: flex;
-      align-items: center;
-      gap: 0.5rem;
-      color: var(--navy);
-      font-size: 0.95rem;
-      font-weight: 400;
-      transition: color 0.2s;
-    }
-    .contact-phone:hover { color: var(--terracotta); }
-    .contact-owner {
-      margin-top: 2.5rem;
-      font-size: 0.82rem;
-      color: var(--text-muted);
-      letter-spacing: 0.08em;
-      text-transform: uppercase;
-    }
-    .no-commission {
       display: inline-flex;
       align-items: center;
       gap: 0.5rem;
-      margin-top: 1rem;
-      font-size: 0.78rem;
-      letter-spacing: 0.12em;
+      font-size: 1.1rem;
+      color: var(--text-muted);
+      transition: color 0.2s;
+    }
+    .contact-phone:hover { color: var(--gold); }
+    .contact-owner {
+      margin-top: 2.5rem;
+      font-size: 0.72rem;
+      letter-spacing: 0.2em;
       text-transform: uppercase;
-      color: var(--terracotta);
-      font-weight: 500;
+      color: var(--text-muted);
+    }
+    .no-fee {
+      display: inline-flex;
+      align-items: center;
+      gap: 0.4rem;
+      margin-top: 0.8rem;
+      font-size: 0.68rem;
+      letter-spacing: 0.18em;
+      text-transform: uppercase;
+      color: var(--gold);
     }
 
-    /* ─── Footer ─── */
+    /* ══════════════════════════════════════════
+       FOOTER
+    ══════════════════════════════════════════ */
     footer {
-      background: var(--navy);
-      padding: 3rem 0;
+      background: var(--navy-mid);
+      border-top: 1px solid var(--border);
+      padding: 3.5rem 0 2rem;
     }
-    .footer-inner {
-      display: flex;
-      justify-content: space-between;
-      align-items: center;
-      flex-wrap: wrap;
-      gap: 1.5rem;
+    .footer-top {
+      display: grid;
+      grid-template-columns: 1fr auto 1fr;
+      gap: 3rem;
+      align-items: start;
+      padding-bottom: 2.5rem;
+      border-bottom: 1px solid var(--border);
     }
-    .footer-logo {
-      font-family: var(--font-display);
-      font-size: 1.3rem;
-      color: var(--white);
-      font-weight: 400;
-    }
-    .footer-logo span { color: var(--terracotta); }
-    .footer-address {
+    .footer-brand .nav-brand { font-size: 1.5rem; }
+    .footer-tagline {
       font-size: 0.78rem;
-      color: rgba(255,255,255,0.45);
-      margin-top: 0.3rem;
+      color: var(--text-muted);
+      margin-top: 0.4rem;
+      font-style: italic;
+      font-family: var(--font-serif);
     }
-    .footer-links {
-      display: flex;
-      gap: 2rem;
-    }
-    .footer-links a {
+    .footer-links-col { display: flex; flex-direction: column; gap: 0.75rem; }
+    .footer-links-col a {
       font-size: 0.75rem;
       letter-spacing: 0.1em;
       text-transform: uppercase;
-      color: rgba(255,255,255,0.45);
+      color: var(--text-muted);
       transition: color 0.2s;
     }
-    .footer-links a:hover { color: var(--sand); }
-    .footer-copy {
-      font-size: 0.72rem;
-      color: rgba(255,255,255,0.25);
+    .footer-links-col a:hover { color: var(--gold); }
+    .footer-contact-col { text-align: right; }
+    .footer-contact-col p {
+      font-size: 0.78rem;
+      color: var(--text-muted);
+      line-height: 1.8;
+    }
+    .footer-contact-col a { transition: color 0.2s; }
+    .footer-contact-col a:hover { color: var(--gold); }
+    .footer-bottom {
+      padding-top: 1.8rem;
+      display: flex;
+      justify-content: space-between;
+      align-items: center;
+      font-size: 0.7rem;
+      color: rgba(245,239,227,0.25);
+      flex-wrap: wrap;
+      gap: 1rem;
     }
 
-    /* ─── Reveal Animations ─── */
-    .reveal {
+    /* ══════════════════════════════════════════
+       LIGHTBOX
+    ══════════════════════════════════════════ */
+    #lb {
+      display: none;
+      position: fixed;
+      inset: 0;
+      z-index: 500;
+      background: rgba(6,12,22,0.97);
+      align-items: center;
+      justify-content: center;
+    }
+    #lb.open { display: flex; }
+    #lb img {
+      max-width: 90vw;
+      max-height: 90vh;
+      object-fit: contain;
+      border: 1px solid var(--border);
+    }
+    .lb-x {
+      position: absolute;
+      top: 1.5rem; right: 1.5rem;
+      background: none; border: none;
+      color: var(--text-muted);
+      font-size: 2rem;
+      line-height: 1;
+      transition: color 0.2s;
+    }
+    .lb-x:hover { color: var(--gold); }
+    .lb-arrow {
+      position: absolute;
+      top: 50%; transform: translateY(-50%);
+      background: rgba(245,239,227,0.07);
+      border: 1px solid var(--border);
+      color: var(--cream);
+      width: 48px; height: 48px;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      font-size: 1.5rem;
+      transition: background 0.2s, border-color 0.2s, color 0.2s;
+    }
+    .lb-arrow:hover { background: var(--gold-dim); border-color: var(--gold); color: var(--gold); }
+    .lb-arrow.prev { left: 1.5rem; }
+    .lb-arrow.next { right: 1.5rem; }
+
+    /* ══════════════════════════════════════════
+       SCROLL REVEAL
+    ══════════════════════════════════════════ */
+    .rv {
       opacity: 0;
-      transform: translateY(32px);
-      transition: opacity 0.8s var(--ease), transform 0.8s var(--ease);
+      transform: translateY(30px);
+      transition: opacity 0.85s var(--ease), transform 0.85s var(--ease);
     }
-    .reveal.visible {
-      opacity: 1;
-      transform: translateY(0);
-    }
-    .reveal-delay-1 { transition-delay: 0.15s; }
-    .reveal-delay-2 { transition-delay: 0.3s; }
-    .reveal-delay-3 { transition-delay: 0.45s; }
-    .reveal-delay-4 { transition-delay: 0.6s; }
+    .rv.in { opacity: 1; transform: none; }
+    .rv-d1 { transition-delay: 0.12s; }
+    .rv-d2 { transition-delay: 0.24s; }
+    .rv-d3 { transition-delay: 0.36s; }
+    .rv-d4 { transition-delay: 0.48s; }
 
-    /* ─── Responsive ─── */
+    /* ══════════════════════════════════════════
+       RESPONSIVE
+    ══════════════════════════════════════════ */
+    @media (max-width: 1024px) {
+      .exp-grid { grid-template-columns: repeat(2, 1fr); }
+      .about-img-float { left: -1rem; }
+      .about-gold-tag { right: -0.5rem; }
+    }
     @media (max-width: 900px) {
-      .about-grid { grid-template-columns: 1fr; gap: 3rem; }
-      .apartments-grid { grid-template-columns: 1fr; }
-      .amenities-grid { grid-template-columns: repeat(2, 1fr); }
-      .location-grid { grid-template-columns: 1fr; }
-      .stats-strip { grid-template-columns: repeat(2, 1fr); }
-      .stat-item:nth-child(2)::after { display: none; }
-      .footer-inner { flex-direction: column; text-align: center; }
-      .footer-links { justify-content: center; }
+      .about-grid { grid-template-columns: 1fr; gap: 4rem; }
+      .about-images { padding-bottom: 2.5rem; }
+      .apt-grid { grid-template-columns: 1fr; }
+      .amen-grid { grid-template-columns: repeat(2, 1fr); }
+      .loc-grid { grid-template-columns: 1fr; }
+      .footer-top { grid-template-columns: 1fr; text-align: center; }
+      .footer-contact-col { text-align: center; }
+      .footer-links-col { align-items: center; }
+      .hero-content { grid-template-columns: 1fr; padding-bottom: 4rem; }
+      .hero-right { display: none; }
+      .intro-strip-inner { flex-wrap: wrap; }
     }
     @media (max-width: 640px) {
       .nav-links { display: none; }
@@ -871,187 +1063,264 @@
         display: flex;
         flex-direction: column;
         position: fixed;
-        top: 0;
-        left: 0;
-        right: 0;
-        bottom: 0;
-        background: var(--navy);
+        inset: 0;
+        background: rgba(12,24,41,0.98);
         align-items: center;
         justify-content: center;
-        gap: 2rem;
-        z-index: 99;
+        gap: 2.5rem;
+        z-index: 150;
+        backdrop-filter: blur(20px);
       }
-      .nav-links.open a { font-size: 1.1rem; }
-      .nav-hamburger { display: flex; }
-      .gallery-grid { grid-template-columns: repeat(2, 1fr); grid-auto-rows: 160px; }
-      .amenities-grid { grid-template-columns: repeat(2, 1fr); }
-      .stats-strip { grid-template-columns: repeat(2, 1fr); }
-      .hero-content { margin-left: 0; padding: 0 1.5rem; }
+      .nav-links.open a { font-size: 1.2rem; letter-spacing: 0.12em; }
+      .nav-hamburger { display: flex; z-index: 160; }
+      .gallery-masonry { columns: 2; }
+      .amen-grid { grid-template-columns: repeat(2, 1fr); }
+      .exp-grid { grid-template-columns: 1fr; }
+      nav { padding: 1.2rem 1.5rem; }
     }
   </style>
 </head>
 <body>
 
-<!-- ─── Navigation ─── -->
-<nav id="navbar">
-  <div class="nav-logo">Apartmani <span>Sanja</span></div>
+<!-- ══ NAV ══ -->
+<nav id="nav">
+  <div class="nav-brand">Apartmani <span>Sanja</span></div>
   <ul class="nav-links" id="navLinks">
+    <li><a href="#about">About</a></li>
     <li><a href="#apartments">Apartments</a></li>
-    <li><a href="#amenities">Amenities</a></li>
     <li><a href="#gallery">Gallery</a></li>
+    <li><a href="#amenities">Amenities</a></li>
     <li><a href="#location">Location</a></li>
-    <li><a href="#contact" class="nav-cta">Book Direct</a></li>
+    <li><a href="#contact" class="nav-book">Book Direct</a></li>
   </ul>
-  <div class="nav-hamburger" id="hamburger" onclick="toggleMenu()">
+  <button class="nav-hamburger" id="burger" onclick="toggleNav()" aria-label="Menu">
     <span></span><span></span><span></span>
-  </div>
+  </button>
 </nav>
 
-<!-- ─── Hero ─── -->
+<!-- ══ HERO ══ -->
 <section id="hero">
   <div class="hero-bg"></div>
   <div class="hero-overlay"></div>
-  <div class="hero-content">
-    <p class="hero-eyebrow">Ruskamen &nbsp;·&nbsp; Omiš Riviera &nbsp;·&nbsp; Dalmatia</p>
-    <h1 class="hero-title display">Your <em>Adriatic</em><br>Escape Awaits</h1>
-    <p class="hero-subtitle">Four private apartments nestled between pine trees and the sea. The pebble beach begins just 20 metres from your door.</p>
-    <div class="hero-actions">
-      <a href="#apartments" class="btn-primary">
-        <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><rect x="3" y="3" width="7" height="7"/><rect x="14" y="3" width="7" height="7"/><rect x="3" y="14" width="7" height="7"/><rect x="14" y="14" width="7" height="7"/></svg>
-        View Apartments
-      </a>
-      <a href="https://wa.me/385911141116?text=Hello,%20I'm%20interested%20in%20booking%20Apartmani%20Sanja." class="btn-outline" target="_blank" rel="noopener">
-        <svg width="16" height="16" viewBox="0 0 24 24" fill="currentColor"><path d="M17.472 14.382c-.297-.149-1.758-.867-2.03-.967-.273-.099-.471-.148-.67.15-.197.297-.767.966-.94 1.164-.173.199-.347.223-.644.075-.297-.15-1.255-.463-2.39-1.475-.883-.788-1.48-1.761-1.653-2.059-.173-.297-.018-.458.13-.606.134-.133.298-.347.446-.52.149-.174.198-.298.298-.497.099-.198.05-.371-.025-.52-.075-.149-.669-1.612-.916-2.207-.242-.579-.487-.5-.669-.51-.173-.008-.371-.01-.57-.01-.198 0-.52.074-.792.372-.272.297-1.04 1.016-1.04 2.479 0 1.462 1.065 2.875 1.213 3.074.149.198 2.096 3.2 5.077 4.487.709.306 1.262.489 1.694.625.712.227 1.36.195 1.871.118.571-.085 1.758-.719 2.006-1.413.248-.694.248-1.289.173-1.413-.074-.124-.272-.198-.57-.347m-5.421 7.403h-.004a9.87 9.87 0 01-5.031-1.378l-.361-.214-3.741.982.998-3.648-.235-.374a9.86 9.86 0 01-1.51-5.26c.001-5.45 4.436-9.884 9.888-9.884 2.64 0 5.122 1.03 6.988 2.898a9.825 9.825 0 012.893 6.994c-.003 5.45-4.437 9.884-9.885 9.884m8.413-18.297A11.815 11.815 0 0012.05 0C5.495 0 .16 5.335.157 11.892c0 2.096.547 4.142 1.588 5.945L.057 24l6.305-1.654a11.882 11.882 0 005.683 1.448h.005c6.554 0 11.89-5.335 11.893-11.893a11.821 11.821 0 00-3.48-8.413z"/></svg>
-        WhatsApp
-      </a>
+  <div class="hero-content container">
+    <div class="hero-left">
+      <p class="hero-eyebrow">Ruskamen &nbsp;·&nbsp; Omiš Riviera &nbsp;·&nbsp; Dalmatia, Croatia</p>
+      <h1 class="hero-title">Where the<br><em>Sea Begins</em><br>at Your Door</h1>
+      <p class="hero-desc">Four private apartments among pine trees on the Omiš Riviera. The pebble shore is 20 metres away. No crowds. No commission.</p>
+      <div class="hero-ctas">
+        <a href="#apartments" class="btn-gold">
+          <svg width="15" height="15" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.2"><rect x="3" y="3" width="7" height="7"/><rect x="14" y="3" width="7" height="7"/><rect x="3" y="14" width="7" height="7"/><rect x="14" y="14" width="7" height="7"/></svg>
+          Explore Apartments
+        </a>
+        <a href="https://wa.me/385911141116?text=Hello!%20I'd%20like%20to%20enquire%20about%20Apartmani%20Sanja." class="btn-ghost" target="_blank" rel="noopener">
+          <svg width="15" height="15" viewBox="0 0 24 24" fill="currentColor"><path d="M17.472 14.382c-.297-.149-1.758-.867-2.03-.967-.273-.099-.471-.148-.67.15-.197.297-.767.966-.94 1.164-.173.199-.347.223-.644.075-.297-.15-1.255-.463-2.39-1.475-.883-.788-1.48-1.761-1.653-2.059-.173-.297-.018-.458.13-.606.134-.133.298-.347.446-.52.149-.174.198-.298.298-.497.099-.198.05-.371-.025-.52-.075-.149-.669-1.612-.916-2.207-.242-.579-.487-.5-.669-.51-.173-.008-.371-.01-.57-.01-.198 0-.52.074-.792.372-.272.297-1.04 1.016-1.04 2.479 0 1.462 1.065 2.875 1.213 3.074.149.198 2.096 3.2 5.077 4.487.709.306 1.262.489 1.694.625.712.227 1.36.195 1.871.118.571-.085 1.758-.719 2.006-1.413.248-.694.248-1.289.173-1.413-.074-.124-.272-.198-.57-.347m-5.421 7.403h-.004a9.87 9.87 0 01-5.031-1.378l-.361-.214-3.741.982.998-3.648-.235-.374a9.86 9.86 0 01-1.51-5.26c.001-5.45 4.436-9.884 9.888-9.884 2.64 0 5.122 1.03 6.988 2.898a9.825 9.825 0 012.893 6.994c-.003 5.45-4.437 9.884-9.885 9.884m8.413-18.297A11.815 11.815 0 0012.05 0C5.495 0 .16 5.335.157 11.892c0 2.096.547 4.142 1.588 5.945L.057 24l6.305-1.654a11.882 11.882 0 005.683 1.448h.005c6.554 0 11.89-5.335 11.893-11.893a11.821 11.821 0 00-3.48-8.413z"/></svg>
+          WhatsApp
+        </a>
+      </div>
+    </div>
+    <div class="hero-right">
+      <div class="hero-stats">
+        <div>
+          <div class="hero-stat-num">20<sup>m</sup></div>
+          <div class="hero-stat-label">To the Beach</div>
+        </div>
+        <div class="hero-stat-divider"></div>
+        <div>
+          <div class="hero-stat-num">4</div>
+          <div class="hero-stat-label">Apartments</div>
+        </div>
+        <div class="hero-stat-divider"></div>
+        <div>
+          <div class="hero-stat-num">€40</div>
+          <div class="hero-stat-label">From per Night</div>
+        </div>
+      </div>
     </div>
   </div>
-  <div class="hero-scroll">
+  <div class="hero-scroll-hint">
     <span>Scroll</span>
-    <div class="scroll-line"></div>
+    <div class="scroll-bar"></div>
   </div>
 </section>
 
-<!-- ─── About ─── -->
+<!-- ══ INTRO STRIP ══ -->
+<div class="intro-strip">
+  <div class="container">
+    <div class="intro-strip-inner">
+      <div class="intro-item rv">
+        <div class="intro-num">20<sup>m</sup></div>
+        <div class="intro-lbl">Pebble Beach</div>
+      </div>
+      <div class="intro-item rv rv-d1">
+        <div class="intro-num">4</div>
+        <div class="intro-lbl">Private Apartments</div>
+      </div>
+      <div class="intro-item rv rv-d2">
+        <div class="intro-num">6<sup>km</sup></div>
+        <div class="intro-lbl">To Omiš Town</div>
+      </div>
+      <div class="intro-item rv rv-d3">
+        <div class="intro-num">30<sup>km</sup></div>
+        <div class="intro-lbl">To Split</div>
+      </div>
+    </div>
+  </div>
+</div>
+
+<!-- ══ ABOUT ══ -->
 <section id="about">
   <div class="container">
     <div class="about-grid">
-      <div class="about-text reveal">
-        <p class="section-label">Our Story</p>
-        <h2>Quiet Village,<br>Endless Blue</h2>
-        <div class="divider"></div>
-        <p>Tucked into the sun-drenched village of Ruskamen on the Omiš Riviera, Apartmani Sanja is a family-run retreat where the Adriatic begins at the foot of your terrace. Ancient pine trees shade your mornings. The smell of the sea is constant.</p>
-        <p>We offer four thoughtfully furnished apartments — from a cosy studio for two to a spacious family apartment with two bedrooms. Whether you're here for the Cetina River canyon, the quiet coves, or simply the sound of pebbles on the shore, we look forward to welcoming you.</p>
-        <p>The house is looked after personally by the Čulić family. Guests are our guests, not bookings.</p>
+      <div class="rv">
+        <span class="label">Our Place</span>
+        <h2 class="serif">A Quiet Corner<br>of <em>Dalmatia</em></h2>
+        <span class="gold-line"></span>
+        <p>Tucked into the sun-warmed village of Ruskamen on the Omiš Riviera, Apartmani Sanja sits where ancient pines shade the stone path to the sea. Below the terrace, the Adriatic stretches south. Twenty metres down, a pebble beach.</p>
+        <p>We offer four thoughtfully furnished apartments — from an intimate studio for two to a generous family apartment with two bedrooms. Whether you've come for the Cetina River canyon, the quiet coves, or simply the sound of stones and waves, the Čulić family will welcome you personally.</p>
+        <p style="margin-top:1.1rem;"><em style="font-family:var(--font-serif);font-style:italic;color:var(--gold-light);font-size:1.05rem;">"Our guests are our guests — not bookings."</em></p>
       </div>
-      <div class="about-images reveal reveal-delay-2">
-        <div class="about-img-main">
-          <img src="https://www.apartmanija.hr/slike/apartments_units/26714_7330_1733140778.jpg" alt="Sea view terrace">
-        </div>
-        <div class="about-img-small">
-          <img src="https://www.apartmanija.hr/slike/apartments_units/26711_5381_1733143596.jpg" alt="Apartment interior">
-        </div>
-        <div class="about-img-small">
-          <img src="https://www.apartmanija.hr/slike/apartments_units/26714_8167_1733140747.jpg" alt="Apartment bedroom">
+      <div class="rv rv-d2">
+        <div class="about-images">
+          <div class="about-img-large">
+            <img src="https://www.apartmanija.hr/slike/apartments_units/26714_7330_1733140778.jpg" alt="Terrace sea view">
+          </div>
+          <div class="about-img-float">
+            <img src="https://www.apartmanija.hr/slike/apartments_units/26711_5381_1733143596.jpg" alt="Apartment interior">
+          </div>
+          <div class="about-gold-tag">Omiš Riviera</div>
         </div>
       </div>
-    </div>
-  </div>
-  <div class="stats-strip reveal">
-    <div class="stat-item">
-      <div class="stat-num">20<sup>m</sup></div>
-      <div class="stat-label">To Pebble Beach</div>
-    </div>
-    <div class="stat-item">
-      <div class="stat-num">4</div>
-      <div class="stat-label">Private Apartments</div>
-    </div>
-    <div class="stat-item">
-      <div class="stat-num">6<sup>km</sup></div>
-      <div class="stat-label">To Omiš Town</div>
-    </div>
-    <div class="stat-item">
-      <div class="stat-num">30<sup>km</sup></div>
-      <div class="stat-label">To Split Airport</div>
     </div>
   </div>
 </section>
 
-<!-- ─── Apartments ─── -->
+<!-- ══ EXPERIENCE ══ -->
+<section id="experience">
+  <div class="container">
+    <div class="exp-header rv">
+      <span class="label">The Sanja Experience</span>
+      <h2 class="serif">Everything That Matters<br>for a <em>Perfect Stay</em></h2>
+    </div>
+    <div class="exp-grid">
+      <div class="exp-item rv">
+        <div class="exp-icon">
+          <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.3"><path d="M12 22s-8-4.5-8-11.8A8 8 0 0112 2a8 8 0 018 8.2c0 7.3-8 11.8-8 11.8z"/><circle cx="12" cy="10" r="3"/></svg>
+        </div>
+        <h3>Beach at Your Feet</h3>
+        <p>A pristine pebble cove begins just 20 metres from your terrace. Clear Adriatic water, no crowds — just the sound of the sea.</p>
+      </div>
+      <div class="exp-item rv rv-d1">
+        <div class="exp-icon">
+          <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.3"><path d="M3 9l9-7 9 7v11a2 2 0 01-2 2H5a2 2 0 01-2-2z"/><polyline points="9 22 9 12 15 12 15 22"/></svg>
+        </div>
+        <h3>Family-Run Warmth</h3>
+        <p>Hosted personally by Sanja and Marin Čulić. No call centres, no agency fees — just honest hospitality and helpful local knowledge.</p>
+      </div>
+      <div class="exp-item rv rv-d2">
+        <div class="exp-icon">
+          <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.3"><path d="M18 8h1a4 4 0 010 8h-1"/><path d="M2 8h16v9a4 4 0 01-4 4H6a4 4 0 01-4-4V8z"/><line x1="6" y1="1" x2="6" y2="4"/><line x1="10" y1="1" x2="10" y2="4"/><line x1="14" y1="1" x2="14" y2="4"/></svg>
+        </div>
+        <h3>BBQ under the Pines</h3>
+        <p>A shared courtyard grill area shaded by old pine trees. Summer evenings, fresh fish, and the smell of the sea — a Dalmatian ritual.</p>
+      </div>
+      <div class="exp-item rv rv-d3">
+        <div class="exp-icon">
+          <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.3"><circle cx="12" cy="12" r="3"/><path d="M12 1v2M12 21v2M4.22 4.22l1.42 1.42M18.36 18.36l1.42 1.42M1 12h2M21 12h2M4.22 19.78l1.42-1.42M18.36 5.64l1.42-1.42"/></svg>
+        </div>
+        <h3>Riviera Panoramas</h3>
+        <p>From terraces above the Adriatic, watch sunsets paint the islands gold. Omiš canyon 6 km east. Split and the open sea 30 km west.</p>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- ══ APARTMENTS ══ -->
 <section id="apartments">
   <div class="container">
-    <div class="section-header reveal">
-      <p class="section-label">Accommodation</p>
-      <h2>Four Apartments,<br>One Riviera</h2>
-      <div class="divider"></div>
+    <div class="apt-header">
+      <div class="rv">
+        <span class="label">Accommodation</span>
+        <h2 class="serif">Four Apartments,<br>One <em>Riviera</em></h2>
+      </div>
+      <p class="rv rv-d2">All apartments include free Wi-Fi, private terrace access, BBQ use, and direct beach access. Book directly with the owner — no platform commission.</p>
     </div>
-    <div class="apartments-grid" id="aptGrid">
-      <!-- Cards injected by JS -->
-    </div>
+    <div class="apt-grid" id="aptGrid"></div>
   </div>
 </section>
 
-<!-- ─── Amenities ─── -->
+<!-- ══ GALLERY ══ -->
+<section id="gallery">
+  <div class="container">
+    <div class="gallery-header rv">
+      <span class="label">Gallery</span>
+      <h2 class="serif">Life at <em>Sanja</em></h2>
+      <span class="gold-line"></span>
+    </div>
+    <div class="gallery-masonry" id="galGrid"></div>
+  </div>
+</section>
+
+<!-- ══ AMENITIES ══ -->
 <section id="amenities">
   <div class="container">
-    <div class="section-header reveal" style="text-align:center;">
-      <p class="section-label">Facilities</p>
-      <h2>Everything You Need</h2>
-      <div class="divider" style="margin:1.5rem auto;"></div>
+    <div class="amen-header rv">
+      <span class="label">Facilities</span>
+      <h2 class="serif">Everything <em>You Need</em></h2>
+      <span class="gold-line" style="margin:1.4rem auto;"></span>
     </div>
-    <div class="amenities-grid">
-      <div class="amenity-item reveal">
-        <div class="amenity-icon">
-          <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5"><path d="M12 22s-8-4.5-8-11.8A8 8 0 0112 2a8 8 0 018 8.2c0 7.3-8 11.8-8 11.8z"/><circle cx="12" cy="10" r="3"/></svg>
+    <div class="amen-grid">
+      <div class="amen-item rv">
+        <div class="amen-icon">
+          <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.4"><path d="M12 22s-8-4.5-8-11.8A8 8 0 0112 2a8 8 0 018 8.2c0 7.3-8 11.8-8 11.8z"/><circle cx="12" cy="10" r="3"/></svg>
         </div>
         <h4>Pebble Beach</h4>
         <p>20 metres from your door</p>
       </div>
-      <div class="amenity-item reveal reveal-delay-1">
-        <div class="amenity-icon">
-          <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5"><path d="M5 12.55a11 11 0 0114.08 0"/><path d="M1.42 9a16 16 0 0121.16 0"/><path d="M8.53 16.11a6 6 0 016.95 0"/><circle cx="12" cy="20" r="1"/></svg>
+      <div class="amen-item rv rv-d1">
+        <div class="amen-icon">
+          <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.4"><path d="M5 12.55a11 11 0 0114.08 0"/><path d="M1.42 9a16 16 0 0121.16 0"/><path d="M8.53 16.11a6 6 0 016.95 0"/><circle cx="12" cy="20" r="1"/></svg>
         </div>
         <h4>Free Wi-Fi</h4>
         <p>All apartments included</p>
       </div>
-      <div class="amenity-item reveal reveal-delay-2">
-        <div class="amenity-icon">
-          <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5"><rect x="3" y="3" width="18" height="18" rx="2"/><path d="M3 9h18M9 21V9"/></svg>
+      <div class="amen-item rv rv-d2">
+        <div class="amen-icon">
+          <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.4"><rect x="3" y="3" width="18" height="18" rx="2"/><path d="M3 9h18M9 21V9"/></svg>
         </div>
         <h4>Air Conditioning</h4>
-        <p>Select apartments (A6 & A4/45)</p>
+        <p>A6 and A4 Premium</p>
       </div>
-      <div class="amenity-item reveal reveal-delay-3">
-        <div class="amenity-icon">
-          <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5"><path d="M18 8h1a4 4 0 010 8h-1"/><path d="M2 8h16v9a4 4 0 01-4 4H6a4 4 0 01-4-4V8z"/><line x1="6" y1="1" x2="6" y2="4"/><line x1="10" y1="1" x2="10" y2="4"/><line x1="14" y1="1" x2="14" y2="4"/></svg>
+      <div class="amen-item rv rv-d3">
+        <div class="amen-icon">
+          <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.4"><path d="M18 8h1a4 4 0 010 8h-1"/><path d="M2 8h16v9a4 4 0 01-4 4H6a4 4 0 01-4-4V8z"/><line x1="6" y1="1" x2="6" y2="4"/><line x1="10" y1="1" x2="10" y2="4"/><line x1="14" y1="1" x2="14" y2="4"/></svg>
         </div>
         <h4>BBQ &amp; Grill</h4>
-        <p>Shared courtyard grill area</p>
+        <p>Shared courtyard grill</p>
       </div>
-      <div class="amenity-item reveal">
-        <div class="amenity-icon">
-          <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5"><rect x="2" y="7" width="20" height="15" rx="2"/><polyline points="17 2 12 7 7 2"/></svg>
+      <div class="amen-item rv">
+        <div class="amen-icon">
+          <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.4"><rect x="2" y="7" width="20" height="15" rx="2"/><polyline points="17 2 12 7 7 2"/></svg>
         </div>
         <h4>Free Parking</h4>
-        <p>30m from property</p>
+        <p>30m above the property</p>
       </div>
-      <div class="amenity-item reveal reveal-delay-1">
-        <div class="amenity-icon">
-          <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5"><path d="M20.84 4.61a5.5 5.5 0 00-7.78 0L12 5.67l-1.06-1.06a5.5 5.5 0 00-7.78 7.78l1.06 1.06L12 21.23l7.78-7.78 1.06-1.06a5.5 5.5 0 000-7.78z"/></svg>
+      <div class="amen-item rv rv-d1">
+        <div class="amen-icon">
+          <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.4"><path d="M20.84 4.61a5.5 5.5 0 00-7.78 0L12 5.67l-1.06-1.06a5.5 5.5 0 00-7.78 7.78l1.06 1.06L12 21.23l7.78-7.78 1.06-1.06a5.5 5.5 0 000-7.78z"/></svg>
         </div>
         <h4>Pets Welcome</h4>
         <p>Dog-friendly property</p>
       </div>
-      <div class="amenity-item reveal reveal-delay-2">
-        <div class="amenity-icon">
-          <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5"><circle cx="12" cy="12" r="3"/><path d="M12 1v2M12 21v2M4.22 4.22l1.42 1.42M18.36 18.36l1.42 1.42M1 12h2M21 12h2M4.22 19.78l1.42-1.42M18.36 5.64l1.42-1.42"/></svg>
+      <div class="amen-item rv rv-d2">
+        <div class="amen-icon">
+          <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.4"><circle cx="12" cy="12" r="3"/><path d="M12 1v2M12 21v2M4.22 4.22l1.42 1.42M18.36 18.36l1.42 1.42M1 12h2M21 12h2M4.22 19.78l1.42-1.42M18.36 5.64l1.42-1.42"/></svg>
         </div>
-        <h4>Sea View</h4>
+        <h4>Sea Views</h4>
         <p>Stunning Adriatic panoramas</p>
       </div>
-      <div class="amenity-item reveal reveal-delay-3">
-        <div class="amenity-icon">
-          <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5"><path d="M3 9l9-7 9 7v11a2 2 0 01-2 2H5a2 2 0 01-2-2z"/><polyline points="9 22 9 12 15 12 15 22"/></svg>
+      <div class="amen-item rv rv-d3">
+        <div class="amen-icon">
+          <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.4"><path d="M3 9l9-7 9 7v11a2 2 0 01-2 2H5a2 2 0 01-2-2z"/><polyline points="9 22 9 12 15 12 15 22"/></svg>
         </div>
         <h4>Private Terraces</h4>
         <p>Each apartment has its own</p>
@@ -1060,363 +1329,273 @@
   </div>
 </section>
 
-<!-- ─── Gallery ─── -->
-<section id="gallery">
-  <div class="container">
-    <div class="section-header reveal">
-      <p class="section-label">Gallery</p>
-      <h2>Life at Sanja</h2>
-      <div class="divider"></div>
-    </div>
-    <div class="gallery-grid" id="galleryGrid">
-      <!-- Injected by JS -->
-    </div>
-  </div>
-</section>
-
-<!-- Lightbox -->
-<div id="lightbox">
-  <button class="lb-close" onclick="closeLightbox()">&#215;</button>
-  <button class="lb-nav prev" onclick="lbNav(-1)">&#8249;</button>
-  <img id="lbImg" src="" alt="">
-  <button class="lb-nav next" onclick="lbNav(1)">&#8250;</button>
-</div>
-
-<!-- ─── Location ─── -->
+<!-- ══ LOCATION ══ -->
 <section id="location">
   <div class="container">
-    <div class="section-header reveal">
-      <p class="section-label">Where We Are</p>
-      <h2>Ruskamen, Omiš Riviera</h2>
-      <div class="divider"></div>
+    <div class="rv">
+      <span class="label">Where We Are</span>
+      <h2 class="serif">Ruskamen,<br><em>Omiš Riviera</em></h2>
     </div>
-    <div class="location-grid">
-      <div class="map-wrap reveal">
+    <div class="loc-grid">
+      <div class="map-box rv">
         <iframe
-          src="https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d1246.8!2d16.74257!3d43.41073!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x0%3A0x0!2zNDPCsDI0JzM4LjYiTiAxNsKwNDQnMzMuMyJF!5e1!3m2!1sen!2shr!4v1"
-          allowfullscreen
-          loading="lazy"
+          src="https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d800!2d16.74257!3d43.41073!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x0%3A0x0!2zNDPCsDI0JzM4LjYiTiAxNsKwNDQnMzMuMyJF!5e1!3m2!1sen!2shr!4v1"
+          allowfullscreen loading="lazy"
           referrerpolicy="no-referrer-when-downgrade"
-          title="Apartmani Sanja location map">
+          title="Apartmani Sanja map">
         </iframe>
       </div>
-      <div class="location-info reveal reveal-delay-2">
-        <h3>Getting Here</h3>
-        <ul class="distance-list">
-          <li class="distance-item">
-            <span class="distance-label">
-              <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M12 22s-8-4.5-8-11.8A8 8 0 0112 2a8 8 0 018 8.2c0 7.3-8 11.8-8 11.8z"/><circle cx="12" cy="10" r="3"/></svg>
+      <div class="loc-info rv rv-d2">
+        <h3>Getting There</h3>
+        <ul class="dist-list">
+          <li class="dist-row">
+            <span class="dist-name">
+              <svg width="15" height="15" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M12 22s-8-4.5-8-11.8A8 8 0 0112 2a8 8 0 018 8.2c0 7.3-8 11.8-8 11.8z"/><circle cx="12" cy="10" r="3"/></svg>
               Pebble Beach
             </span>
-            <span class="distance-value">20 m</span>
+            <span class="dist-val">20 m</span>
           </li>
-          <li class="distance-item">
-            <span class="distance-label">
-              <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><circle cx="12" cy="12" r="10"/><line x1="12" y1="8" x2="12" y2="12"/><line x1="12" y1="16" x2="12.01" y2="16"/></svg>
+          <li class="dist-row">
+            <span class="dist-name">
+              <svg width="15" height="15" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><circle cx="12" cy="12" r="10"/><path d="M12 8v4l3 3"/></svg>
               Shops &amp; Restaurants
             </span>
-            <span class="distance-value">350 m</span>
+            <span class="dist-val">350 m</span>
           </li>
-          <li class="distance-item">
-            <span class="distance-label">
-              <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><rect x="3" y="3" width="18" height="18" rx="2"/><path d="M3 9h18M9 21V9"/></svg>
-              Omiš Town
+          <li class="dist-row">
+            <span class="dist-name">
+              <svg width="15" height="15" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><rect x="3" y="3" width="18" height="18" rx="2"/><path d="M3 9h18M9 21V9"/></svg>
+              Omiš Old Town
             </span>
-            <span class="distance-value">6 km</span>
+            <span class="dist-val">6 km</span>
           </li>
-          <li class="distance-item">
-            <span class="distance-label">
-              <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M22 16.92v3a2 2 0 01-2.18 2 19.79 19.79 0 01-8.63-3.07A19.5 19.5 0 013.07 12 19.79 19.79 0 01.22 3.18 2 2 0 012.2 1h3a2 2 0 012 1.72 12.84 12.84 0 00.7 2.81 2 2 0 01-.45 2.11L6.91 8.09A16 16 0 0015.91 17l.55-.56a2 2 0 012.11-.45 12.84 12.84 0 002.81.7A2 2 0 0122 18.72z"/></svg>
-              Split
+          <li class="dist-row">
+            <span class="dist-name">
+              <svg width="15" height="15" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M22 16.92v3a2 2 0 01-2.18 2 19.79 19.79 0 01-8.63-3.07A19.5 19.5 0 013.07 12 19.79 19.79 0 01.22 3.18 2 2 0 012.2 1h3a2 2 0 012 1.72c.127.96.361 1.903.7 2.81a2 2 0 01-.45 2.11L6.91 8.09A16 16 0 0015.91 17l.55-.56a2 2 0 012.11-.45c.907.339 1.85.573 2.81.7A2 2 0 0122 18.72z"/></svg>
+              Split City
             </span>
-            <span class="distance-value">30 km</span>
+            <span class="dist-val">30 km</span>
           </li>
-          <li class="distance-item">
-            <span class="distance-label">
-              <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M22 2L11 13M22 2l-7 20-4-9-9-4 20-7z"/></svg>
+          <li class="dist-row">
+            <span class="dist-name">
+              <svg width="15" height="15" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M22 2L11 13M22 2l-7 20-4-9-9-4 20-7z"/></svg>
               Split Airport
             </span>
-            <span class="distance-value">~35 km</span>
+            <span class="dist-val">~35 km</span>
           </li>
         </ul>
-        <div class="location-note">
-          Parking is available free of charge approximately 30m above the house. The property is reached by a short path through the pines — no heavy steps, no crowds.
+        <div class="loc-note">
+          The property is reached by a short pine-shaded path from the road. Parking is free, 30 metres above. The village of Ruskamen has a supermarket, cafés, and restaurants within a 5-minute walk.
         </div>
       </div>
     </div>
   </div>
 </section>
 
-<!-- ─── Contact ─── -->
+<!-- ══ CONTACT ══ -->
 <section id="contact">
   <div class="container">
-    <div class="contact-inner reveal">
-      <p class="section-label">Book Direct</p>
-      <h2>Reserve Your Stay</h2>
-      <p class="contact-tagline">No commission. No middleman. Just us.</p>
-      <div class="divider"></div>
-      <p>Reach Sanja directly via WhatsApp or phone to check availability, ask questions, or confirm your reservation. We reply promptly.</p>
+    <div class="contact-wrap rv">
+      <span class="label">Reserve Your Stay</span>
+      <h2 class="serif">Book Direct.<br><em>No Middlemen.</em></h2>
+      <span class="gold-line" style="margin:1.5rem auto;"></span>
+      <p class="contact-italic">No commission, no waiting, no algorithm — just Sanja.</p>
+      <p>Message or call directly to check availability, ask about the apartments, or confirm your dates. We respond the same day.</p>
       <div class="contact-actions">
-        <a href="https://wa.me/385911141116?text=Hello%20Sanja!%20I'd%20like%20to%20book%20at%20Apartmani%20Sanja%20in%20Ruskamen." class="btn-whatsapp-large" target="_blank" rel="noopener">
-          <svg width="22" height="22" viewBox="0 0 24 24" fill="currentColor"><path d="M17.472 14.382c-.297-.149-1.758-.867-2.03-.967-.273-.099-.471-.148-.67.15-.197.297-.767.966-.94 1.164-.173.199-.347.223-.644.075-.297-.15-1.255-.463-2.39-1.475-.883-.788-1.48-1.761-1.653-2.059-.173-.297-.018-.458.13-.606.134-.133.298-.347.446-.52.149-.174.198-.298.298-.497.099-.198.05-.371-.025-.52-.075-.149-.669-1.612-.916-2.207-.242-.579-.487-.5-.669-.51-.173-.008-.371-.01-.57-.01-.198 0-.52.074-.792.372-.272.297-1.04 1.016-1.04 2.479 0 1.462 1.065 2.875 1.213 3.074.149.198 2.096 3.2 5.077 4.487.709.306 1.262.489 1.694.625.712.227 1.36.195 1.871.118.571-.085 1.758-.719 2.006-1.413.248-.694.248-1.289.173-1.413-.074-.124-.272-.198-.57-.347m-5.421 7.403h-.004a9.87 9.87 0 01-5.031-1.378l-.361-.214-3.741.982.998-3.648-.235-.374a9.86 9.86 0 01-1.51-5.26c.001-5.45 4.436-9.884 9.888-9.884 2.64 0 5.122 1.03 6.988 2.898a9.825 9.825 0 012.893 6.994c-.003 5.45-4.437 9.884-9.885 9.884m8.413-18.297A11.815 11.815 0 0012.05 0C5.495 0 .16 5.335.157 11.892c0 2.096.547 4.142 1.588 5.945L.057 24l6.305-1.654a11.882 11.882 0 005.683 1.448h.005c6.554 0 11.89-5.335 11.893-11.893a11.821 11.821 0 00-3.48-8.413z"/></svg>
+        <a href="https://wa.me/385911141116?text=Hello%20Sanja!%20I'd%20like%20to%20book%20at%20Apartmani%20Sanja%20in%20Ruskamen." class="btn-wa-big" target="_blank" rel="noopener">
+          <svg width="20" height="20" viewBox="0 0 24 24" fill="currentColor"><path d="M17.472 14.382c-.297-.149-1.758-.867-2.03-.967-.273-.099-.471-.148-.67.15-.197.297-.767.966-.94 1.164-.173.199-.347.223-.644.075-.297-.15-1.255-.463-2.39-1.475-.883-.788-1.48-1.761-1.653-2.059-.173-.297-.018-.458.13-.606.134-.133.298-.347.446-.52.149-.174.198-.298.298-.497.099-.198.05-.371-.025-.52-.075-.149-.669-1.612-.916-2.207-.242-.579-.487-.5-.669-.51-.173-.008-.371-.01-.57-.01-.198 0-.52.074-.792.372-.272.297-1.04 1.016-1.04 2.479 0 1.462 1.065 2.875 1.213 3.074.149.198 2.096 3.2 5.077 4.487.709.306 1.262.489 1.694.625.712.227 1.36.195 1.871.118.571-.085 1.758-.719 2.006-1.413.248-.694.248-1.289.173-1.413-.074-.124-.272-.198-.57-.347m-5.421 7.403h-.004a9.87 9.87 0 01-5.031-1.378l-.361-.214-3.741.982.998-3.648-.235-.374a9.86 9.86 0 01-1.51-5.26c.001-5.45 4.436-9.884 9.888-9.884 2.64 0 5.122 1.03 6.988 2.898a9.825 9.825 0 012.893 6.994c-.003 5.45-4.437 9.884-9.885 9.884m8.413-18.297A11.815 11.815 0 0012.05 0C5.495 0 .16 5.335.157 11.892c0 2.096.547 4.142 1.588 5.945L.057 24l6.305-1.654a11.882 11.882 0 005.683 1.448h.005c6.554 0 11.89-5.335 11.893-11.893a11.821 11.821 0 00-3.48-8.413z"/></svg>
           Message on WhatsApp
         </a>
         <a href="tel:+385911141116" class="contact-phone">
-          <svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M22 16.92v3a2 2 0 01-2.18 2 19.79 19.79 0 01-8.63-3.07A19.5 19.5 0 013.07 12 19.79 19.79 0 01.22 3.18 2 2 0 012.2 1h3a2 2 0 012 1.72 12.84 12.84 0 00.7 2.81 2 2 0 01-.45 2.11L6.91 8.09A16 16 0 0015.91 17l.55-.56a2 2 0 012.11-.45 12.84 12.84 0 002.81.7A2 2 0 0122 18.72z"/></svg>
+          <svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8"><path d="M22 16.92v3a2 2 0 01-2.18 2 19.79 19.79 0 01-8.63-3.07A19.5 19.5 0 013.07 12 19.79 19.79 0 01.22 3.18 2 2 0 012.2 1h3a2 2 0 012 1.72c.127.96.361 1.903.7 2.81a2 2 0 01-.45 2.11L6.91 8.09A16 16 0 0015.91 17l.55-.56a2 2 0 012.11-.45c.907.339 1.85.573 2.81.7A2 2 0 0122 18.72z"/></svg>
           +385 91 114 1116
         </a>
       </div>
       <p class="contact-owner">Sanja &amp; Marin Čulić · Ruskamen, 21310 Omiš</p>
-      <div class="no-commission">
-        <svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5"><polyline points="20 6 9 17 4 12"/></svg>
-        Zero commission fees
+      <div class="no-fee">
+        <svg width="13" height="13" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5"><polyline points="20 6 9 17 4 12"/></svg>
+        Zero commission · Book direct &amp; save
       </div>
     </div>
   </div>
 </section>
 
-<!-- ─── Footer ─── -->
+<!-- ══ FOOTER ══ -->
 <footer>
   <div class="container">
-    <div class="footer-inner">
-      <div>
-        <div class="footer-logo">Apartmani <span>Sanja</span></div>
-        <div class="footer-address">Ruskamen, 21310 Omiš · Dalmatia, Croatia</div>
+    <div class="footer-top">
+      <div class="footer-brand">
+        <div class="nav-brand" style="font-size:1.5rem;">Apartmani <span>Sanja</span></div>
+        <p class="footer-tagline">Crafted for Dalmatian hospitality.</p>
       </div>
-      <ul class="footer-links">
+      <ul class="footer-links-col">
+        <li><a href="#about">About</a></li>
         <li><a href="#apartments">Apartments</a></li>
-        <li><a href="#amenities">Amenities</a></li>
         <li><a href="#gallery">Gallery</a></li>
+        <li><a href="#amenities">Amenities</a></li>
         <li><a href="#location">Location</a></li>
+        <li><a href="#contact">Book Direct</a></li>
       </ul>
-      <p class="footer-copy">&copy; 2025 Apartmani Sanja. All rights reserved.</p>
+      <div class="footer-contact-col">
+        <p>
+          Ruskamen, 21310 Omiš<br>
+          Dalmatia, Croatia<br><br>
+          <a href="tel:+385911141116">+385 91 114 1116</a><br>
+          <a href="https://wa.me/385911141116" target="_blank" rel="noopener">WhatsApp</a>
+        </p>
+      </div>
+    </div>
+    <div class="footer-bottom">
+      <span>&copy; 2025 Apartmani Sanja. All rights reserved.</span>
+      <span>Ruskamen · Omiš Riviera · Dalmatia</span>
     </div>
   </div>
 </footer>
 
+<!-- ══ LIGHTBOX ══ -->
+<div id="lb">
+  <button class="lb-x" onclick="lbClose()">&#215;</button>
+  <button class="lb-arrow prev" onclick="lbMove(-1)">&#8249;</button>
+  <img id="lbImg" src="" alt="">
+  <button class="lb-arrow next" onclick="lbMove(1)">&#8250;</button>
+</div>
+
 <script>
-  /* ─── Data ─── */
-  const BASE = 'https://www.apartmanija.hr/slike/apartments_units/';
+/* ─ Data ─ */
+const B = 'https://www.apartmanija.hr/slike/apartments_units/';
 
-  const apartments = [
-    {
-      name: 'Apartment A6',
-      subtitle: 'Family Suite',
-      size: '75 m²',
-      guests: '6 guests',
-      price: '60',
-      ac: true,
-      tags: ['2 Bedrooms', 'Sea View', 'BBQ Terrace', 'Fully Equipped'],
-      waText: 'Hello%20Sanja!%20I%27m%20interested%20in%20Apartment%20A6%20(75m²%2C%206%20persons).',
-      images: [
-        BASE + '26711_6434_1733143540.jpg',
-        BASE + '26711_5381_1733143596.jpg',
-        BASE + '26711_2085_1733143614.jpg',
-        BASE + '26711_9240_1733143627.jpg',
-        BASE + '26711_7909_1733144041.jpg',
-        BASE + '26711_4200_1733144047.jpg',
-        BASE + '26711_5833_1733144644.jpg',
-      ]
-    },
-    {
-      name: 'Apartment A3',
-      subtitle: 'Studio Retreat',
-      size: '27 m²',
-      guests: '3 guests',
-      price: '40',
-      ac: false,
-      tags: ['1 Bedroom', 'Microwave', 'Wi-Fi', 'Terrace'],
-      waText: 'Hello%20Sanja!%20I%27m%20interested%20in%20Apartment%20A3%20(27m²%2C%203%20persons).',
-      images: [
-        BASE + '26712_3266_1733141566.jpg',
-        BASE + '26712_3769_1733145157.jpg',
-        BASE + '26712_3155_1733145170.jpg',
-        BASE + '26712_4043_1733145203.jpg',
-        BASE + '26712_7837_1733145244.jpg',
-        BASE + '26712_5934_1733145271.jpg',
-        BASE + '26712_6475_1733145700.jpg',
-        BASE + '26712_6892_1733146058.jpg',
-      ]
-    },
-    {
-      name: 'Apartment A4',
-      subtitle: 'Classic',
-      size: '33 m²',
-      guests: '4 guests',
-      price: '50',
-      ac: false,
-      tags: ['1 Bedroom', 'Microwave', 'Wi-Fi', 'Terrace'],
-      waText: 'Hello%20Sanja!%20I%27m%20interested%20in%20Apartment%20A4%20(33m²%2C%204%20persons).',
-      images: [
-        BASE + '26713_7889_1733140893.jpg',
-        BASE + '26713_9419_1733140904.jpg',
-        BASE + '26713_5562_1733140916.jpg',
-        BASE + '26713_8673_1733140932.jpg',
-        BASE + '26713_6578_1733144799.jpg',
-        BASE + '26713_9777_1733144859.jpg',
-        BASE + '26713_9519_1733145865.jpg',
-        BASE + '26713_8071_1733146141.jpg',
-      ]
-    },
-    {
-      name: 'Apartment A4',
-      subtitle: 'Premium',
-      size: '45 m²',
-      guests: '4 guests',
-      price: '70',
-      ac: true,
-      tags: ['1 Bedroom', 'Air Conditioning', 'Wi-Fi', 'Sea Terrace'],
-      waText: 'Hello%20Sanja!%20I%27m%20interested%20in%20Apartment%20A4%20Premium%20(45m²%2C%204%20persons).',
-      images: [
-        BASE + '26714_5159_1733140718.jpg',
-        BASE + '26714_4802_1733140728.jpg',
-        BASE + '26714_8167_1733140747.jpg',
-        BASE + '26714_7097_1733140760.jpg',
-        BASE + '26714_7330_1733140778.jpg',
-        BASE + '26714_6453_1733140788.jpg',
-      ]
-    }
-  ];
+const APTS = [
+  {
+    id: 'A6', name:'Apartment A6', sub:'Family Suite',
+    size:'75 m²', guests:'6 guests', price:'60', ac:true,
+    tags:['2 Bedrooms','Sea View Terrace','BBQ Access','Full Kitchen'],
+    wa:'Hello%20Sanja!%20I%27m%20interested%20in%20Apartment%20A6%20(75m%C2%B2%2C%206%20persons).',
+    imgs:[B+'26711_6434_1733143540.jpg',B+'26711_5381_1733143596.jpg',B+'26711_2085_1733143614.jpg',B+'26711_9240_1733143627.jpg',B+'26711_7909_1733144041.jpg',B+'26711_4200_1733144047.jpg',B+'26711_5833_1733144644.jpg']
+  },
+  {
+    id:'A3', name:'Apartment A3', sub:'Studio Retreat',
+    size:'27 m²', guests:'3 guests', price:'40', ac:false,
+    tags:['1 Bedroom','Microwave','Terrace','Sea Proximity'],
+    wa:'Hello%20Sanja!%20I%27m%20interested%20in%20Apartment%20A3%20(27m%C2%B2%2C%203%20persons).',
+    imgs:[B+'26712_3266_1733141566.jpg',B+'26712_3769_1733145157.jpg',B+'26712_3155_1733145170.jpg',B+'26712_4043_1733145203.jpg',B+'26712_7837_1733145244.jpg',B+'26712_5934_1733145271.jpg',B+'26712_6475_1733145700.jpg',B+'26712_6892_1733146058.jpg']
+  },
+  {
+    id:'A4', name:'Apartment A4', sub:'Classic',
+    size:'33 m²', guests:'4 guests', price:'50', ac:false,
+    tags:['1 Bedroom','Microwave','Terrace','BBQ Access'],
+    wa:'Hello%20Sanja!%20I%27m%20interested%20in%20Apartment%20A4%20Classic%20(33m%C2%B2%2C%204%20persons).',
+    imgs:[B+'26713_7889_1733140893.jpg',B+'26713_9419_1733140904.jpg',B+'26713_5562_1733140916.jpg',B+'26713_8673_1733140932.jpg',B+'26713_6578_1733144799.jpg',B+'26713_9777_1733144859.jpg',B+'26713_9519_1733145865.jpg',B+'26713_8071_1733146141.jpg']
+  },
+  {
+    id:'A4+', name:'Apartment A4', sub:'Premium',
+    size:'45 m²', guests:'4 guests', price:'70', ac:true,
+    tags:['1 Bedroom','Air Conditioning','Sea Terrace','Full Kitchen'],
+    wa:'Hello%20Sanja!%20I%27m%20interested%20in%20Apartment%20A4%20Premium%20(45m%C2%B2%2C%204%20persons).',
+    imgs:[B+'26714_5159_1733140718.jpg',B+'26714_4802_1733140728.jpg',B+'26714_8167_1733140747.jpg',B+'26714_7097_1733140760.jpg',B+'26714_7330_1733140778.jpg',B+'26714_6453_1733140788.jpg']
+  }
+];
 
-  /* ─── Build Apartment Cards ─── */
-  const grid = document.getElementById('aptGrid');
-  apartments.forEach((apt, i) => {
-    const slides = apt.images.map((src, j) => `
-      <div class="slide ${j===0?'active':''}">
-        <img src="${src}" alt="${apt.name} photo ${j+1}" loading="lazy">
-      </div>`).join('');
+/* ─ Build Apartment Cards ─ */
+const ssState = APTS.map(a => ({ i:0, n:a.imgs.length }));
 
-    const dots = apt.images.map((_, j) => `
-      <div class="dot ${j===0?'active':''}" onclick="goSlide(${i},${j})"></div>`).join('');
+const aptGrid = document.getElementById('aptGrid');
+APTS.forEach((a, ai) => {
+  const slides = a.imgs.map((s,j) => `<div class="ss-slide${j===0?' active':''}"><img src="${s}" alt="${a.name} ${j+1}" loading="lazy"></div>`).join('');
+  const dots   = a.imgs.map((_,j) => `<div class="ss-dot${j===0?' on':''}" onclick="ssGo(${ai},${j})"></div>`).join('');
+  const tags   = a.tags.map(t => `<span class="apt-tag">${t}</span>`).join('');
 
-    const tags = apt.tags.map(t => `<span class="amenity-tag">${t}</span>`).join('');
-
-    grid.innerHTML += `
-      <div class="apt-card reveal ${i%2===1?'reveal-delay-2':''}">
-        <div class="slideshow" id="ss${i}">
-          ${slides}
-          <button class="slide-btn prev" onclick="changeSlide(${i},-1)">&#8249;</button>
-          <button class="slide-btn next" onclick="changeSlide(${i},+1)">&#8250;</button>
-          <div class="apt-badge-row">
-            <span class="apt-badge">${apt.size}</span>
-            <span class="apt-badge">${apt.guests}</span>
-            ${apt.ac ? '<span class="apt-badge ac">AC</span>' : ''}
-          </div>
-          <div class="slide-dots">${dots}</div>
+  aptGrid.innerHTML += `
+  <div class="apt-card rv${ai%2===1?' rv-d2':''}">
+    <div class="ss-wrap" id="ss${ai}">
+      ${slides}
+      <button class="ss-btn prev" onclick="ssMov(${ai},-1)">&#8249;</button>
+      <button class="ss-btn next" onclick="ssMov(${ai},1)">&#8250;</button>
+      <div class="ss-badges">
+        <span class="ss-badge">${a.size}</span>
+        <span class="ss-badge">${a.guests}</span>
+        ${a.ac?'<span class="ss-badge gold">AC</span>':''}
+      </div>
+      <div class="ss-dots">${dots}</div>
+    </div>
+    <div class="apt-body">
+      <div class="apt-top">
+        <div>
+          <div class="apt-name">${a.name}</div>
+          <div class="apt-sub">${a.sub}</div>
         </div>
-        <div class="apt-body">
-          <div class="apt-header">
-            <div>
-              <div class="apt-name display">${apt.name}</div>
-              <div style="font-size:0.78rem;letter-spacing:0.1em;text-transform:uppercase;color:var(--text-muted);margin-top:0.15rem;">${apt.subtitle}</div>
-            </div>
-            <div class="apt-price">
-              <div class="from">From</div>
-              <div class="amount">€${apt.price}</div>
-              <div class="per">per night</div>
-            </div>
-          </div>
-          <div class="apt-divider"></div>
-          <div class="apt-amenities">${tags}</div>
-          <a href="https://wa.me/385911141116?text=${apt.waText}" class="btn-whatsapp" target="_blank" rel="noopener">
-            <svg width="17" height="17" viewBox="0 0 24 24" fill="currentColor"><path d="M17.472 14.382c-.297-.149-1.758-.867-2.03-.967-.273-.099-.471-.148-.67.15-.197.297-.767.966-.94 1.164-.173.199-.347.223-.644.075-.297-.15-1.255-.463-2.39-1.475-.883-.788-1.48-1.761-1.653-2.059-.173-.297-.018-.458.13-.606.134-.133.298-.347.446-.52.149-.174.198-.298.298-.497.099-.198.05-.371-.025-.52-.075-.149-.669-1.612-.916-2.207-.242-.579-.487-.5-.669-.51-.173-.008-.371-.01-.57-.01-.198 0-.52.074-.792.372-.272.297-1.04 1.016-1.04 2.479 0 1.462 1.065 2.875 1.213 3.074.149.198 2.096 3.2 5.077 4.487.709.306 1.262.489 1.694.625.712.227 1.36.195 1.871.118.571-.085 1.758-.719 2.006-1.413.248-.694.248-1.289.173-1.413-.074-.124-.272-.198-.57-.347m-5.421 7.403h-.004a9.87 9.87 0 01-5.031-1.378l-.361-.214-3.741.982.998-3.648-.235-.374a9.86 9.86 0 01-1.51-5.26c.001-5.45 4.436-9.884 9.888-9.884 2.64 0 5.122 1.03 6.988 2.898a9.825 9.825 0 012.893 6.994c-.003 5.45-4.437 9.884-9.885 9.884m8.413-18.297A11.815 11.815 0 0012.05 0C5.495 0 .16 5.335.157 11.892c0 2.096.547 4.142 1.588 5.945L.057 24l6.305-1.654a11.882 11.882 0 005.683 1.448h.005c6.554 0 11.89-5.335 11.893-11.893a11.821 11.821 0 00-3.48-8.413z"/></svg>
-            Enquire about this apartment
-          </a>
+        <div class="apt-price-box">
+          <div class="apt-from">From</div>
+          <div class="apt-amount">€${a.price}</div>
+          <div class="apt-per">/ night</div>
         </div>
-      </div>`;
-  });
+      </div>
+      <div class="apt-sep"></div>
+      <div class="apt-tags">${tags}</div>
+      <a href="https://wa.me/385911141116?text=${a.wa}" class="apt-wa" target="_blank" rel="noopener">
+        <svg width="16" height="16" viewBox="0 0 24 24" fill="currentColor"><path d="M17.472 14.382c-.297-.149-1.758-.867-2.03-.967-.273-.099-.471-.148-.67.15-.197.297-.767.966-.94 1.164-.173.199-.347.223-.644.075-.297-.15-1.255-.463-2.39-1.475-.883-.788-1.48-1.761-1.653-2.059-.173-.297-.018-.458.13-.606.134-.133.298-.347.446-.52.149-.174.198-.298.298-.497.099-.198.05-.371-.025-.52-.075-.149-.669-1.612-.916-2.207-.242-.579-.487-.5-.669-.51-.173-.008-.371-.01-.57-.01-.198 0-.52.074-.792.372-.272.297-1.04 1.016-1.04 2.479 0 1.462 1.065 2.875 1.213 3.074.149.198 2.096 3.2 5.077 4.487.709.306 1.262.489 1.694.625.712.227 1.36.195 1.871.118.571-.085 1.758-.719 2.006-1.413.248-.694.248-1.289.173-1.413-.074-.124-.272-.198-.57-.347m-5.421 7.403h-.004a9.87 9.87 0 01-5.031-1.378l-.361-.214-3.741.982.998-3.648-.235-.374a9.86 9.86 0 01-1.51-5.26c.001-5.45 4.436-9.884 9.888-9.884 2.64 0 5.122 1.03 6.988 2.898a9.825 9.825 0 012.893 6.994c-.003 5.45-4.437 9.884-9.885 9.884m8.413-18.297A11.815 11.815 0 0012.05 0C5.495 0 .16 5.335.157 11.892c0 2.096.547 4.142 1.588 5.945L.057 24l6.305-1.654a11.882 11.882 0 005.683 1.448h.005c6.554 0 11.89-5.335 11.893-11.893a11.821 11.821 0 00-3.48-8.413z"/></svg>
+        Enquire &amp; Book
+      </a>
+    </div>
+  </div>`;
+});
 
-  /* ─── Slideshow Logic ─── */
-  const slideState = apartments.map(a => ({ idx: 0, total: a.images.length }));
+function ssGo(ai, si) {
+  const el = document.getElementById('ss'+ai);
+  el.querySelectorAll('.ss-slide')[ssState[ai].i].classList.remove('active');
+  el.querySelectorAll('.ss-dot')[ssState[ai].i].classList.remove('on');
+  ssState[ai].i = si;
+  el.querySelectorAll('.ss-slide')[si].classList.add('active');
+  el.querySelectorAll('.ss-dot')[si].classList.add('on');
+}
+function ssMov(ai, d) { ssGo(ai, (ssState[ai].i + d + ssState[ai].n) % ssState[ai].n); }
+APTS.forEach((_,i) => setInterval(() => ssMov(i,1), 4200 + i*600));
 
-  function goSlide(aptIdx, slideIdx) {
-    const ss = document.getElementById('ss' + aptIdx);
-    const slides = ss.querySelectorAll('.slide');
-    const dots = ss.querySelectorAll('.dot');
-    slides[slideState[aptIdx].idx].classList.remove('active');
-    dots[slideState[aptIdx].idx].classList.remove('active');
-    slideState[aptIdx].idx = slideIdx;
-    slides[slideIdx].classList.add('active');
-    dots[slideIdx].classList.add('active');
-  }
+/* ─ Gallery ─ */
+const allImgs = APTS.flatMap(a => a.imgs);
+const galGrid = document.getElementById('galGrid');
+allImgs.forEach((src, i) => {
+  galGrid.innerHTML += `<div class="gal-item" onclick="lbOpen(${i})"><img src="${src}" alt="Gallery ${i+1}" loading="lazy"></div>`;
+});
 
-  function changeSlide(aptIdx, dir) {
-    const total = slideState[aptIdx].total;
-    const next = (slideState[aptIdx].idx + dir + total) % total;
-    goSlide(aptIdx, next);
-  }
+/* ─ Lightbox ─ */
+let lbIdx = 0;
+function lbOpen(i) {
+  lbIdx = i;
+  document.getElementById('lbImg').src = allImgs[i];
+  document.getElementById('lb').classList.add('open');
+  document.body.style.overflow = 'hidden';
+}
+function lbClose() {
+  document.getElementById('lb').classList.remove('open');
+  document.body.style.overflow = '';
+}
+function lbMove(d) {
+  lbIdx = (lbIdx + d + allImgs.length) % allImgs.length;
+  document.getElementById('lbImg').src = allImgs[lbIdx];
+}
+document.getElementById('lb').addEventListener('click', e => { if(e.target===document.getElementById('lb')) lbClose(); });
+document.addEventListener('keydown', e => {
+  if (!document.getElementById('lb').classList.contains('open')) return;
+  if (e.key==='Escape') lbClose();
+  if (e.key==='ArrowLeft') lbMove(-1);
+  if (e.key==='ArrowRight') lbMove(1);
+});
 
-  // Auto-cycle
-  apartments.forEach((_, i) => {
-    setInterval(() => {
-      const total = slideState[i].total;
-      const next = (slideState[i].idx + 1) % total;
-      goSlide(i, next);
-    }, 4000 + i * 700);
-  });
+/* ─ Sticky Nav ─ */
+window.addEventListener('scroll', () => {
+  document.getElementById('nav').classList.toggle('solid', window.scrollY > 70);
+});
 
-  /* ─── Gallery ─── */
-  const allImages = apartments.flatMap(a => a.images);
-  const galleryGrid = document.getElementById('galleryGrid');
-  allImages.forEach((src, i) => {
-    galleryGrid.innerHTML += `
-      <div class="gallery-item" onclick="openLightbox(${i})">
-        <img src="${src}" alt="Gallery photo ${i+1}" loading="lazy">
-      </div>`;
-  });
+/* ─ Mobile Nav ─ */
+function toggleNav() { document.getElementById('navLinks').classList.toggle('open'); }
+document.querySelectorAll('#navLinks a').forEach(a => a.addEventListener('click', () => document.getElementById('navLinks').classList.remove('open')));
 
-  /* ─── Lightbox ─── */
-  let lbIdx = 0;
-  function openLightbox(i) {
-    lbIdx = i;
-    document.getElementById('lbImg').src = allImages[i];
-    document.getElementById('lightbox').classList.add('open');
-    document.body.style.overflow = 'hidden';
-  }
-  function closeLightbox() {
-    document.getElementById('lightbox').classList.remove('open');
-    document.body.style.overflow = '';
-  }
-  function lbNav(dir) {
-    lbIdx = (lbIdx + dir + allImages.length) % allImages.length;
-    document.getElementById('lbImg').src = allImages[lbIdx];
-  }
-  document.getElementById('lightbox').addEventListener('click', function(e) {
-    if (e.target === this) closeLightbox();
-  });
-  document.addEventListener('keydown', e => {
-    const lb = document.getElementById('lightbox');
-    if (!lb.classList.contains('open')) return;
-    if (e.key === 'Escape') closeLightbox();
-    if (e.key === 'ArrowLeft') lbNav(-1);
-    if (e.key === 'ArrowRight') lbNav(1);
-  });
-
-  /* ─── Sticky Nav ─── */
-  const navbar = document.getElementById('navbar');
-  window.addEventListener('scroll', () => {
-    navbar.classList.toggle('scrolled', window.scrollY > 60);
-  });
-
-  /* ─── Mobile Menu ─── */
-  function toggleMenu() {
-    document.getElementById('navLinks').classList.toggle('open');
-  }
-  document.querySelectorAll('#navLinks a').forEach(a => {
-    a.addEventListener('click', () => document.getElementById('navLinks').classList.remove('open'));
-  });
-
-  /* ─── Scroll Reveal ─── */
-  const revealEls = document.querySelectorAll('.reveal');
-  const observer = new IntersectionObserver((entries) => {
-    entries.forEach(e => {
-      if (e.isIntersecting) {
-        e.target.classList.add('visible');
-        observer.unobserve(e.target);
-      }
-    });
-  }, { threshold: 0.12 });
-  revealEls.forEach(el => observer.observe(el));
+/* ─ Scroll Reveal ─ */
+new IntersectionObserver((entries) => {
+  entries.forEach(e => { if(e.isIntersecting) { e.target.classList.add('in'); } });
+}, { threshold: 0.1 }).observe && document.querySelectorAll('.rv').forEach(el => {
+  new IntersectionObserver(([e]) => { if(e.isIntersecting) { el.classList.add('in'); } }, { threshold: 0.1 }).observe(el);
+});
 </script>
 </body>
 </html>
