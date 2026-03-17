@@ -166,18 +166,23 @@
       overflow: hidden;
     }
 
-    .hero-bg {
+    /* Hero Slideshow */
+    .hero-slide {
       position: absolute;
       inset: 0;
-      background-image: url('https://www.apartmanija.hr/slike/apartments/10212_4441_1736550971.jpg');
       background-size: cover;
       background-position: center 55%;
-      transform-origin: center;
-      animation: kenburns 22s ease-out forwards;
+      opacity: 0;
+      transition: opacity 1.4s ease-in-out;
+      transform: scale(1.06);
+      animation: heroZoom 8s ease-out forwards;
     }
-    @keyframes kenburns {
-      0%   { transform: scale(1.12) translateY(0); }
-      100% { transform: scale(1.0) translateY(-2%); }
+    .hero-slide.active {
+      opacity: 1;
+    }
+    @keyframes heroZoom {
+      0%   { transform: scale(1.08); }
+      100% { transform: scale(1.0); }
     }
 
     .hero-overlay {
@@ -1100,7 +1105,13 @@
 
 <!-- ══ HERO ══ -->
 <section id="hero">
-  <div class="hero-bg"></div>
+  <!-- Slide 1: user's terrace photo (save as images/hero1.jpg) -->
+  <div class="hero-slide active" style="background-image:url('images/hero1.jpg')"></div>
+  <!-- Slides 2–5: best sea-view shots from the collection -->
+  <div class="hero-slide" style="background-image:url('https://www.apartmanija.hr/slike/apartments_units/26714_7330_1733140778.jpg')"></div>
+  <div class="hero-slide" style="background-image:url('https://www.apartmanija.hr/slike/apartments_units/26711_6434_1733143540.jpg')"></div>
+  <div class="hero-slide" style="background-image:url('https://www.apartmanija.hr/slike/apartments_units/26714_5159_1733140718.jpg')"></div>
+  <div class="hero-slide" style="background-image:url('https://www.apartmanija.hr/slike/apartments/10212_4441_1736550971.jpg')"></div>
   <div class="hero-overlay"></div>
   <div class="hero-content container">
     <div class="hero-left">
@@ -1580,6 +1591,27 @@ document.addEventListener('keydown', e => {
   if (e.key==='ArrowLeft') lbMove(-1);
   if (e.key==='ArrowRight') lbMove(1);
 });
+
+/* ─ Hero Slideshow ─ */
+(function() {
+  const slides = document.querySelectorAll('.hero-slide');
+  let cur = 0;
+  function next() {
+    slides[cur].classList.remove('active');
+    // restart zoom animation on each slide
+    slides[cur].style.animation = 'none';
+    cur = (cur + 1) % slides.length;
+    const s = slides[cur];
+    s.classList.add('active');
+    // re-trigger zoom
+    s.style.animation = 'none';
+    void s.offsetWidth; // reflow
+    s.style.animation = 'heroZoom 8s ease-out forwards';
+  }
+  // Prime zoom on first slide
+  slides[0].style.animation = 'heroZoom 8s ease-out forwards';
+  setInterval(next, 5500);
+})();
 
 /* ─ Sticky Nav ─ */
 window.addEventListener('scroll', () => {
