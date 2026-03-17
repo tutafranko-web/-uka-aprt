@@ -171,17 +171,19 @@
       position: absolute;
       inset: 0;
       background-size: cover;
-      background-position: center 55%;
+      background-position: center center;
+      background-repeat: no-repeat;
+      image-rendering: -webkit-optimize-contrast;
+      image-rendering: crisp-edges;
       opacity: 0;
-      transition: opacity 1.4s ease-in-out;
-      transform: scale(1.06);
-      animation: heroZoom 8s ease-out forwards;
+      transition: opacity 1.6s ease-in-out;
     }
     .hero-slide.active {
       opacity: 1;
+      animation: heroZoom 9s ease-out forwards;
     }
     @keyframes heroZoom {
-      0%   { transform: scale(1.08); }
+      0%   { transform: scale(1.07); }
       100% { transform: scale(1.0); }
     }
 
@@ -1105,13 +1107,16 @@
 
 <!-- ══ HERO ══ -->
 <section id="hero">
-  <!-- Slide 1: user's terrace photo (save as images/hero1.jpg) -->
-  <div class="hero-slide active" style="background-image:url('images/hero1.jpg')"></div>
-  <!-- Slides 2–5: best sea-view shots from the collection -->
-  <div class="hero-slide" style="background-image:url('https://www.apartmanija.hr/slike/apartments_units/26714_7330_1733140778.jpg')"></div>
-  <div class="hero-slide" style="background-image:url('https://www.apartmanija.hr/slike/apartments_units/26711_6434_1733143540.jpg')"></div>
-  <div class="hero-slide" style="background-image:url('https://www.apartmanija.hr/slike/apartments_units/26714_5159_1733140718.jpg')"></div>
-  <div class="hero-slide" style="background-image:url('https://www.apartmanija.hr/slike/apartments/10212_4441_1736550971.jpg')"></div>
+  <!-- Slide 1: terrace sea view (local high-res) -->
+  <div class="hero-slide active" style="background-image:url('images/hero1.jpg'); background-position: center 40%;"></div>
+  <!-- Slide 2: sea terrace panorama -->
+  <div class="hero-slide" style="background-image:url('https://www.apartmanija.hr/slike/apartments_units/26714_7330_1733140778.jpg'); background-position: center 50%;"></div>
+  <!-- Slide 3: A6 main view -->
+  <div class="hero-slide" style="background-image:url('https://www.apartmanija.hr/slike/apartments_units/26711_6434_1733143540.jpg'); background-position: center 45%;"></div>
+  <!-- Slide 4: A4 premium sea view -->
+  <div class="hero-slide" style="background-image:url('https://www.apartmanija.hr/slike/apartments_units/26714_5159_1733140718.jpg'); background-position: center 55%;"></div>
+  <!-- Slide 5: property overview -->
+  <div class="hero-slide" style="background-image:url('https://www.apartmanija.hr/slike/apartments/10212_4441_1736550971.jpg'); background-position: center 60%;"></div>
   <div class="hero-overlay"></div>
   <div class="hero-content container">
     <div class="hero-left">
